@@ -15,8 +15,8 @@
     method = methods[length];
 
     // Only stub undefined methods.
-    if (!console[method]) {
-      console[method] = noop;
+    if (!(method in console)) {
+      (console as unknown as {[key: string]: Function})[method] = noop;
     }
   }
 }());
