@@ -1,7 +1,7 @@
 import { WorkModel } from "./../models/work.model";
 import { SkillModel } from "./../models/skill.model";
-import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { LitElement, html } from "lit";
+import { customElement } from "lit/decorators.js";
 import { style } from "./page.component.scss.ts";
 import { data } from "../../assets/data.ts";
 

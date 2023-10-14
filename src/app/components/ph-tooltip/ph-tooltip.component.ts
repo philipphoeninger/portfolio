@@ -1,5 +1,5 @@
-import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { LitElement, html } from "lit";
+import { customElement } from "lit/decorators.js";
 import { style } from "./ph-tooltip.component.scss.ts";
 
 @customElement("ph-tooltip")

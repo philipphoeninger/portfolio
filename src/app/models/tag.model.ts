@@ -1,5 +1,5 @@
 import { EnSkillArea } from "./skill-area.enum";
-import { jsonMember, jsonArrayMember, jsonObject } from "typedjson";
+import { jsonMember, jsonObject } from "typedjson";
 
 @jsonObject
 export class TagModel {
