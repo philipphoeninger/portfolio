@@ -1,24 +1,17 @@
-import './styles/style.scss'
-import javascriptLogo from './assets/icons/javascript.svg'
-import viteLogo from './assets/icons/vite.svg'
-import { setupCounter } from './app/counter.js'
+import { Page } from "./app/page/page.component";
+import { PhCard } from "./app/components/ph-card/ph-card.component";
+import { PhDropdown } from "./app/components/ph-dropdown/ph-dropdown.component";
+import { PhMenu } from "./app/components/ph-menu/ph-menu.component";
+import { PhSelectInfo } from "./app/components/ph-select-info/ph-select-info.component";
+import { PhSelectLanguage } from "./app/components/ph-select-language/ph-select-language.component";
+import { PhTooltip } from "./app/components/ph-tooltip/ph-tooltip.component";
 
-document.querySelector('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
-
-setupCounter(document.querySelector('#counter'))
+export const components = [
+  Page,
+  PhCard,
+  PhDropdown,
+  PhMenu,
+  PhSelectInfo,
+  PhSelectLanguage,
+  PhTooltip,
+];
