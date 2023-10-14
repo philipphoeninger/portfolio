@@ -1,4 +1,5 @@
 import { jsonMember, jsonArrayMember, jsonObject } from "typedjson";
+import { TagModel } from "./tag.model";
 
 @jsonObject
 export class WorkModel {
@@ -8,8 +9,8 @@ export class WorkModel {
   @jsonMember({ constructor: String })
   description: string;
 
-  @jsonArrayMember(String)
-  tags: string[];
+  @jsonArrayMember(TagModel)
+  tags: TagModel[];
 
   @jsonMember({ constructor: String })
   sourceUrl: string;

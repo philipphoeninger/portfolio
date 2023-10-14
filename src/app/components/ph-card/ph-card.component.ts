@@ -1,6 +1,7 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { style } from "./ph-card.component.scss.ts";
+import { TagModel } from "@app/models/tag.model.ts";
 
 @customElement("ph-card")
 export class PhCard extends LitElement {
@@ -10,10 +11,10 @@ export class PhCard extends LitElement {
 
   @property({ type: String }) label: string = "Label";
   @property({ type: String }) description: string = "Description";
-  @property({ type: String }) imageUrl: string = "https://www.google.com";
+  @property({ type: String }) imageName: string = "https://www.google.com";
   @property({ type: String }) sourceUrl: string = "https://www.google.com";
   @property({ type: String }) liveUrl: string = "https://www.google.com";
-  @property({ type: Array }) tags = [];
+  @property({ type: Array }) tags: TagModel[] = [];
 
   render() {
     return html`
@@ -24,16 +25,16 @@ export class PhCard extends LitElement {
           <p class="phCard--content-text">${this.description}</p>
           <div class="phCard--tags">
             <ul>
-              ${this.tags?.map((tag) => html`<li>${tag}</li>`)}
+              ${this.tags?.map((tag) => html`<li>${tag.label}</li>`)}
             </ul>
           </div>
           <div class="phCard--links">
             <div class="source">
-              <span>Code</span>
+              <a href="${this.sourceUrl}" title="Link to Project Code">Code</a>
               <span>icon</span>
             </div>
             <div class="live">
-              <span>Live</span>
+              <a href="${this.liveUrl}" title="Link to Live Project">Live</a>
               <span>icon</span>
             </div>
           </div>

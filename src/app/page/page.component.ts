@@ -37,21 +37,16 @@ export class Page extends LitElement {
 
   constructor() {
     super();
-    this.skills = data.skills;
-    this.work = data.work;
+    this.skills = data.skills || {};
+    this.work = data.work || {};
   }
 
   render() {
     return html`
-      <header
-        style="width: 100%; display: flex; justify-content: space-between"
-      >
-        <span>Max.dev</span><ph-menu></ph-menu>
-      </header>
+      <header><span>Max.dev</span><ph-menu></ph-menu></header>
       <main>
         <a id="top"></a>
-
-        <div id="hero">
+        <section id="showcase">
           <picture>
             <!-- <source
         media="(min-width: 650px)"
@@ -74,31 +69,30 @@ export class Page extends LitElement {
             Germany.
           </p>
           <div>Icons...</div>
-        </div>
+        </section>
 
         <section id="skills">
           <h2>Skills</h2>
-          <ph-select-info></ph-select-info>
+          <ph-select-info
+            skills="${JSON.stringify(this.skills)}"
+          ></ph-select-info>
         </section>
 
         <section id="work">
           <h2>Work</h2>
-          <ph-card
-            imageUrl="./src/assets/img/portrait.jpg"
-            label="Statista Program"
-            description="This is the description for the Statista Program. It was a pretty complex project. Not too long."
-            sourceLink="www.google.com"
-            liveLink="www.google.com"
-            tags='["JavaScript","HTML","CSS"]'
-          ></ph-card>
-          <ph-card
-            image="./src/assets/img/portrait.jpg"
-            label="UI Project"
-            description="The UI Project was a lot of fun with limited complexity and a lot of bubble gum. Not too long."
-            codeLink="www.google.com"
-            liveLink="www.google.com"
-            tags='["Angular","SCSS","C#"]'
-          ></ph-card>
+          <ul>
+            ${this.work.map(
+              (workEntry: WorkModel) =>
+                html`<ph-card
+                  imageName="${workEntry.imageName}"
+                  label="${workEntry.label}"
+                  description="${workEntry.description}"
+                  sourceUrl="${workEntry.sourceUrl}"
+                  liveUrl="${workEntry.liveUrl}"
+                  tags="${JSON.stringify(workEntry.tags)}"
+                ></ph-card>`
+            )}
+          </ul>
         </section>
 
         <section id="about">

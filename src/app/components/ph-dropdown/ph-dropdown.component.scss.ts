@@ -1,7 +1,7 @@
 import { css } from "lit-element";
 
 export const style = css`
-  .myClass {
-    width: 100%;
+  #container {
+    border: 1px solid black;
   }
 `;

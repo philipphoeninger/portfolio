@@ -9,7 +9,7 @@ export class PhDropdown extends LitElement {
   }
 
   render() {
-    return html`<p>Test this Dropdown-Thing out</p>`;
+    return html`<div id="container">Dropdown Box</div>`;
   }
 }
 
