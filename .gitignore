@@ -30,3 +30,6 @@ package-lock.json
 *.css.map
 *.sass.map
 *.scss.map
+
+# Generated code
+src/assets/i18n/*

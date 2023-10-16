@@ -2,7 +2,9 @@ import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { style } from "./ph-card.component.scss.ts";
 import { TagModel } from "@app/models/tag.model.ts";
+import { msg, localized } from "@lit/localize";
 
+@localized()
 @customElement("ph-card")
 export class PhCard extends LitElement {
   static get styles() {
@@ -30,11 +32,15 @@ export class PhCard extends LitElement {
           </div>
           <div class="phCard--links">
             <div class="source">
-              <a href="${this.sourceUrl}" title="Link to Project Code">Code</a>
+              <a href="${this.sourceUrl}" title="${msg("Link to Project Code")}"
+                >Code</a
+              >
               <span>icon</span>
             </div>
             <div class="live">
-              <a href="${this.liveUrl}" title="Link to Live Project">Live</a>
+              <a href="${this.liveUrl}" title="${msg("Link to Live Project")}"
+                >Live</a
+              >
               <span>icon</span>
             </div>
           </div>

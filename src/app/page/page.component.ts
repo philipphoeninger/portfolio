@@ -4,18 +4,10 @@ import { LitElement, html } from "lit";
 import { customElement } from "lit/decorators.js";
 import { style } from "./page.component.scss.ts";
 import { data } from "../../assets/data.ts";
+import { msg, localized, LOCALE_STATUS_EVENT } from "@lit/localize";
+import { setLocaleFromUrl } from "../localization.ts";
 
-// const converterOne = {
-//   toAttribute(value: Array<SkillModel>) {
-//     console.log(value);
-//     return JSON.stringify(value);
-//   },
-//   fromAttribute(value: string) {
-//     console.log(value);
-//     return JSON.parse(value);
-//   },
-// };
-
+@localized()
 @customElement("app-page")
 export class Page extends LitElement {
   static get styles() {
@@ -26,12 +18,10 @@ export class Page extends LitElement {
     skills: {
       type: Array<SkillModel>,
       attribute: false,
-      // converter: converterOne,
     },
     work: {
       type: Array<WorkModel>,
       attribute: false,
-      // converter: converterOne,
     },
   };
 
@@ -42,8 +32,22 @@ export class Page extends LitElement {
   }
 
   render() {
+    async () => {
+      try {
+        // Defer first render until our initial locale is ready, to avoid a flash of
+        // the wrong locale.
+        await setLocaleFromUrl();
+      } catch (e) {
+        // Either the URL locale code was invalid, or there was a problem loading
+        // the locale module.
+        console.error(`Error loading locale: ${(e as Error).message}`);
+      }
+    };
     return html`
-      <header><span>Max.dev</span><ph-menu></ph-menu></header>
+      <ph-select-locale></ph-select-locale>
+      <header>
+        <span>Max.dev</span><ph-menu options="${JSON.stringify()}"></ph-menu>
+      </header>
       <main>
         <a id="top"></a>
         <section id="showcase">
@@ -63,23 +67,24 @@ export class Page extends LitElement {
               width="433"
             />
           </picture>
-          <h1>Full-Stack Web Developer</h1>
+          <h1>${msg("Full-Stack Web Developer")}</h1>
           <p>
-            Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich,
-            Germany.
+            ${msg(
+              "Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany."
+            )}
           </p>
           <div>Icons...</div>
         </section>
 
         <section id="skills">
-          <h2>Skills</h2>
+          <h2>${msg("Skills")}</h2>
           <ph-select-info
             skills="${JSON.stringify(this.skills)}"
           ></ph-select-info>
         </section>
 
         <section id="work">
-          <h2>Work</h2>
+          <h2>${msg("Work")}</h2>
           <ul>
             ${this.work.map(
               (workEntry: WorkModel) =>
@@ -96,11 +101,11 @@ export class Page extends LitElement {
         </section>
 
         <section id="about">
-          <h2>About</h2>
+          <h2>${msg("About")}</h2>
         </section>
 
         <section id="contact">
-          <h2>Contact</h2>
+          <h2>${msg("Contact")}</h2>
           <div id="mail">
             Icon
             <a href="mailto:maxmustermann@mail.de">maxmustermann@mail.de</a>
@@ -120,7 +125,7 @@ export class Page extends LitElement {
               maxlength="100"
               value=""
               required
-              placeholder="Name"
+              placeholder="${msg("Name")}"
             />Textfeld
             <input
               type="email"
@@ -130,7 +135,7 @@ export class Page extends LitElement {
               maxlength="100"
               value=""
               required
-              placeholder="EMail"
+              placeholder="${msg("EMail")}"
             />Textfeld
             <!--cols und rows besser in CSS setzen. Textarea hat kein value-Attribut-->
             <textarea
@@ -139,9 +144,9 @@ export class Page extends LitElement {
               cols="20"
               rows="5"
               wrap="virtual"
-              placeholder="Or type your message here..."
+              placeholder="${msg("Or type your message here...")}"
             ></textarea>
-            <button type="submit">Send</button>
+            <button type="submit">${msg("Send")}</button>
           </form>
         </section>
 
