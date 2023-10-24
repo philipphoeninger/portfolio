@@ -6,6 +6,7 @@ import { style } from "./page.component.scss.ts";
 import { data } from "../../assets/data.ts";
 import { msg, localized, LOCALE_STATUS_EVENT } from "@lit/localize";
 import { setLocaleFromUrl } from "../localization.ts";
+import { query } from "lit/decorators/query.js";
 
 @localized()
 @customElement("app-page")
@@ -13,6 +14,8 @@ export class Page extends LitElement {
   static get styles() {
     return [style];
   }
+
+  @query("#spinner", true) _spinner: any;
 
   static properties = {
     skills: {
@@ -29,6 +32,44 @@ export class Page extends LitElement {
     super();
     this.skills = data.skills || {};
     this.work = data.work || {};
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    // Update the locale to match the URL when the user moves backwards or forwards
+    // through history.
+    window.addEventListener("popstate", () => {
+      setLocaleFromUrl();
+    });
+
+    window.addEventListener(
+      LOCALE_STATUS_EVENT,
+      this.setSpinnerVisibility.bind(this)
+    );
+  }
+
+  // Display a spinner whenever a new locale is loading.
+  setSpinnerVisibility(event: any) {
+    if (event.detail.status === "loading") {
+      // console.log(`Loading new locale: ${detail.loadingLocale}`);
+      this._spinner?.removeAttribute("hidden");
+    } else if (event.detail.status === "ready") {
+      // console.log(`Loaded new locale: ${detail.readyLocale}`);
+      this._spinner?.setAttribute("hidden", "");
+    } else if (event.detail.status === "error") {
+      // console.error(
+      //   `Error loading locale ${detail.errorLocale}: ` + detail.errorMessage
+      // );
+      this._spinner?.setAttribute("hidden", "");
+    }
+  }
+
+  disconnectedCallback(): void {
+    super.disconnectedCallback();
+    window.removeEventListener("popstate", () => {
+      setLocaleFromUrl();
+    });
+    window.removeEventListener(LOCALE_STATUS_EVENT, this.setSpinnerVisibility);
   }
 
   render() {
@@ -50,6 +91,12 @@ export class Page extends LitElement {
       </header>
       <main>
         <a id="top"></a>
+        <mwc-circular-progress
+          id="spinner"
+          indeterminate
+          hidden
+          style="position: absolute; top: 50%; left: 50%"
+        ></mwc-circular-progress>
         <section id="showcase">
           <picture>
             <!-- <source
