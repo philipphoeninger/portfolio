@@ -85,6 +85,10 @@ export class Page extends LitElement {
       }
     };
     return html`
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      />
       <ph-select-locale></ph-select-locale>
       <header>
         <span>Max.dev</span><ph-menu options="${JSON.stringify()}"></ph-menu>
@@ -100,13 +104,13 @@ export class Page extends LitElement {
         <section id="showcase">
           <picture>
             <!-- <source
-        media="(min-width: 650px)"
-        srcset="./src/assets/img/portrait.jpg"
-      />
-      <source
-        media="(min-width: 465px)"
-        srcset="./src/assets/img/portrait.jpg"
-      /> -->
+      media="(min-width: 650px)"
+      srcset="./src/assets/img/portrait.jpg"
+    />
+    <source
+      media="(min-width: 465px)"
+      srcset="./src/assets/img/portrait.jpg"
+    /> -->
             <img
               src="./src/assets/img/portrait.jpg"
               alt="Portrait Image"
@@ -120,7 +124,35 @@ export class Page extends LitElement {
               "Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany."
             )}
           </p>
-          <div>Icons...</div>
+          <div>
+            <ul>
+              <li>
+                <a href="index.html">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+              </li>
+              <li>
+                <a href="index.html">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+              </li>
+              <li>
+                <a href="index.html">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+              </li>
+              <li>
+                <a href="index.html">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </li>
+              <li>
+                <a href="index.html">
+                  <i class="fa-solid fa-download"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </section>
 
         <section id="skills">
@@ -154,12 +186,16 @@ export class Page extends LitElement {
         <section id="contact">
           <h2>${msg("Contact")}</h2>
           <div id="mail">
-            Icon
+            <a href="index.html">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
             <a href="mailto:maxmustermann@mail.de">maxmustermann@mail.de</a>
           </div>
           <hr />
-          <div id="likedIn">
-            Icon
+          <div id="linkedIn">
+            <a href="index.html">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
             <a href="index.html">www.linkedin.com/in/max-mustermann</a>
           </div>
           <hr />
@@ -193,7 +229,10 @@ export class Page extends LitElement {
               wrap="virtual"
               placeholder="${msg("Or type your message here...")}"
             ></textarea>
-            <button type="submit">${msg("Send")}</button>
+            <button type="submit">
+              ${msg("Send")}
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
           </form>
         </section>
 

@@ -20,6 +20,10 @@ export class PhCard extends LitElement {
 
   render() {
     return html`
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      />
       <div class="phCard">
         <img class="phCard--image" src="" />
         <div class="phCard--content">
@@ -35,13 +39,17 @@ export class PhCard extends LitElement {
               <a href="${this.sourceUrl}" title="${msg("Link to Project Code")}"
                 >Code</a
               >
-              <span>icon</span>
+              <a href="${this.sourceUrl}"
+                ><i class="fa-brands fa-github"></i
+              ></a>
             </div>
             <div class="live">
               <a href="${this.liveUrl}" title="${msg("Link to Live Project")}"
                 >Live</a
               >
-              <span>icon</span>
+              <a href="${this.liveUrl}"
+                ><i class="fa-solid fa-up-right-from-square"></i
+              ></a>
             </div>
           </div>
         </div>
