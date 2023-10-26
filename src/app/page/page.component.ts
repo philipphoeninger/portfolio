@@ -8,8 +8,8 @@ import { msg, localized, LOCALE_STATUS_EVENT } from "@lit/localize";
 import { setLocaleFromUrl } from "../localization.ts";
 import { query } from "lit/decorators/query.js";
 
-@localized()
 @customElement("app-page")
+@localized()
 export class Page extends LitElement {
   static get styles() {
     return [style];
@@ -118,10 +118,11 @@ export class Page extends LitElement {
               width="433"
             />
           </picture>
-          <h1>${msg("Full-Stack Web Developer")}</h1>
+          <h1>${msg("Full-Stack Web Developer", { desc: "TODO" })}</h1>
           <p>
             ${msg(
-              "Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany."
+              "Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany.",
+              { desc: "TODO" }
             )}
           </p>
           <div>
@@ -156,14 +157,14 @@ export class Page extends LitElement {
         </section>
 
         <section id="skills">
-          <h2>${msg("Skills")}</h2>
+          <h2>${msg("Skills", { desc: "TODO" })}</h2>
           <ph-select-info
             skills="${JSON.stringify(this.skills)}"
           ></ph-select-info>
         </section>
 
         <section id="work">
-          <h2>${msg("Work")}</h2>
+          <h2>${msg("Work", { desc: "TODO" })}</h2>
           <ul>
             ${this.work.map(
               (workEntry: WorkModel) =>
@@ -180,11 +181,11 @@ export class Page extends LitElement {
         </section>
 
         <section id="about">
-          <h2>${msg("About")}</h2>
+          <h2>${msg("About", { desc: "TODO" })}</h2>
         </section>
 
         <section id="contact">
-          <h2>${msg("Contact")}</h2>
+          <h2>${msg("Contact", { desc: "TODO" })}</h2>
           <div id="mail">
             <a href="index.html">
               <i class="fa-solid fa-envelope"></i>
@@ -208,7 +209,7 @@ export class Page extends LitElement {
               maxlength="100"
               value=""
               required
-              placeholder="${msg("Name")}"
+              placeholder="${msg("Name", { desc: "TODO" })}"
             />Textfeld
             <input
               type="email"
@@ -218,7 +219,7 @@ export class Page extends LitElement {
               maxlength="100"
               value=""
               required
-              placeholder="${msg("EMail")}"
+              placeholder="${msg("EMail", { desc: "TODO" })}"
             />Textfeld
             <!--cols und rows besser in CSS setzen. Textarea hat kein value-Attribut-->
             <textarea
@@ -227,10 +228,12 @@ export class Page extends LitElement {
               cols="20"
               rows="5"
               wrap="virtual"
-              placeholder="${msg("Or type your message here...")}"
+              placeholder="${msg("Or type your message here...", {
+                desc: "TODO",
+              })}"
             ></textarea>
             <button type="submit">
-              ${msg("Send")}
+              ${msg("Send", { desc: "TODO" })}
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </form>

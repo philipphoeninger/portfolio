@@ -3,15 +3,17 @@ import { customElement } from "lit/decorators.js";
 import { style } from "./ph-dropdown.component.scss.ts";
 import { msg, localized } from "@lit/localize";
 
-@localized()
 @customElement("ph-dropdown")
+@localized()
 export class PhDropdown extends LitElement {
   static get styles() {
     return [style];
   }
 
   render() {
-    return html`<div id="container">${msg("Dropdown Box")}</div>`;
+    return html`<div id="container">
+      ${msg("Dropdown Box", { desc: "TODO" })}
+    </div>`;
   }
 }
 

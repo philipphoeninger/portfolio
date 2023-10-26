@@ -18,8 +18,8 @@ const localeNames: {
   "zh-Hans": "简体中文",
 };
 
-@localized()
 @customElement("ph-select-locale")
+@localized()
 export class PhSelectLocale extends LitElement {
   static get styles() {
     return [style];

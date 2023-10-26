@@ -4,8 +4,8 @@ import { style } from "./ph-card.component.scss.ts";
 import { TagModel } from "@app/models/tag.model.ts";
 import { msg, localized } from "@lit/localize";
 
-@localized()
 @customElement("ph-card")
+@localized()
 export class PhCard extends LitElement {
   static get styles() {
     return [style];
@@ -36,7 +36,9 @@ export class PhCard extends LitElement {
           </div>
           <div class="phCard--links">
             <div class="source">
-              <a href="${this.sourceUrl}" title="${msg("Link to Project Code")}"
+              <a
+                href="${this.sourceUrl}"
+                title="${msg("Link to Project Code", { desc: "TODO" })}"
                 >Code</a
               >
               <a href="${this.sourceUrl}"
@@ -44,7 +46,9 @@ export class PhCard extends LitElement {
               ></a>
             </div>
             <div class="live">
-              <a href="${this.liveUrl}" title="${msg("Link to Live Project")}"
+              <a
+                href="${this.liveUrl}"
+                title="${msg("Link to Live Project", { desc: "TODO" })}"
                 >Live</a
               >
               <a href="${this.liveUrl}"

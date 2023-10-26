@@ -3,8 +3,8 @@ import { customElement, property } from "lit/decorators.js";
 import { style } from "./ph-menu.component.scss.ts";
 import { msg, localized, LOCALE_STATUS_EVENT } from "@lit/localize";
 
-@localized()
 @customElement("ph-menu")
+@localized()
 export class PhMenu extends LitElement {
   static get styles() {
     return [style];
