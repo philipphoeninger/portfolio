@@ -5,67 +5,67 @@
 <trans-unit id="s2ada999573d3cbb5">
   <source>Full-Stack Web Developer</source>
   <target>Full-Stack Web Entwickler</target>
-  <note>missing translation</note>
+  <note></note>
 </trans-unit>
 <trans-unit id="sb6d03495ff002e88">
   <source>Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany.</source>
-  <target>Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany.</target>
-  <note>missing translation</note>
+  <target>Hi, ich bin Max, ein anstrebender Full-Stack Webentwickler aus München, Deutschland.</target>
+  <note></note>
 </trans-unit>
 <trans-unit id="s01b09ac2bd6fcb1f">
   <source>Skills</source>
-  <target>Skills</target>
-  <note>missing translation</note>
+  <target>Fertigkeiten</target>
+  <note></note>
 </trans-unit>
 <trans-unit id="s9ae6ef0237d899a0">
   <source>Work</source>
-  <target>Work</target>
-  <note>missing translation</note>
+  <target>Projekte</target>
+  <note></note>
 </trans-unit>
 <trans-unit id="s0487f33d9ddaabde">
   <source>About</source>
-  <target>About</target>
-  <note>missing translation</note>
+  <target>Über mich</target>
+  <note></note>
 </trans-unit>
 <trans-unit id="s87bae2710b2492c3">
   <source>Contact</source>
-  <target>Contact</target>
-  <note>missing translation</note>
+  <target>Kontakt</target>
+  <note></note>
 </trans-unit>
 <trans-unit id="sef49aec68fd1dc66">
   <source>Name</source>
   <target>Name</target>
-  <note>missing translation</note>
+  <note></note>
 </trans-unit>
 <trans-unit id="sfc8150268d30cf47">
   <source>EMail</source>
   <target>EMail</target>
-  <note>missing translation</note>
+  <note></note>
 </trans-unit>
 <trans-unit id="sf4798c2d7afcdde8">
   <source>Or type your message here...</source>
-  <target>Or type your message here...</target>
-  <note>missing translation</note>
+  <target>Oder geben Sie Ihre Nachricht hier ein...</target>
+  <note></note>
 </trans-unit>
 <trans-unit id="s57adf424d57c8a0f">
   <source>Send</source>
-  <target>Send</target>
-  <note>missing translation</note>
+  <target>Senden</target>
+  <note></note>
 </trans-unit>
 <trans-unit id="s4b9693957a1f65c0">
   <source>Link to Project Code</source>
-  <target>Link to Project Code</target>
-  <note>missing translation</note>
+  <target>Link zum Projekt Code</target>
+  <note></note>
 </trans-unit>
 <trans-unit id="s6d8193e77a28ab5d">
   <source>Link to Live Project</source>
-  <target>Link to Live Project</target>
-  <note>missing translation</note>
+  <target>Link zum Live Projekt</target>
+  <note></note>
 </trans-unit>
 <trans-unit id="s73aa2f194e2dc1a1">
   <source>Dropdown Box</source>
-  <target>Dropdown Box</target>
-  <note>missing translation</note>
+  <target>Auswahlliste</target>
+  <note></note>
 </trans-unit>
 </body>
 </file>

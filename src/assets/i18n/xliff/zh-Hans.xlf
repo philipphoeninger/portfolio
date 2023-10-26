@@ -4,67 +4,67 @@
 <body>
 <trans-unit id="s2ada999573d3cbb5">
   <source>Full-Stack Web Developer</source>
-  <target></target>
+  <target>全栈网络开发人员</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="sb6d03495ff002e88">
   <source>Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany.</source>
-  <target></target>
+  <target>大家好，我是 Max，一名有抱负的全栈 Web 开发人员，工作地点在德国慕尼黑。</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="s01b09ac2bd6fcb1f">
   <source>Skills</source>
-  <target></target>
+  <target>技能</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="s9ae6ef0237d899a0">
   <source>Work</source>
-  <target></target>
+  <target>项目</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="s0487f33d9ddaabde">
   <source>About</source>
-  <target></target>
+  <target>关于我</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="s87bae2710b2492c3">
   <source>Contact</source>
-  <target></target>
+  <target>联系方式</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="sef49aec68fd1dc66">
   <source>Name</source>
-  <target></target>
+  <target>名称</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="sfc8150268d30cf47">
   <source>EMail</source>
-  <target></target>
+  <target>电子邮件</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="sf4798c2d7afcdde8">
   <source>Or type your message here...</source>
-  <target></target>
+  <target>或在此输入您的信息...</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="s57adf424d57c8a0f">
   <source>Send</source>
-  <target></target>
+  <target>发送</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="s4b9693957a1f65c0">
   <source>Link to Project Code</source>
-  <target></target>
+  <target>项目代码链接</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="s6d8193e77a28ab5d">
   <source>Link to Live Project</source>
-  <target></target>
+  <target>实时项目链接</target>
   <note>missing translation</note>
 </trans-unit>
 <trans-unit id="s73aa2f194e2dc1a1">
   <source>Dropdown Box</source>
-  <target></target>
+  <target>下拉框</target>
   <note>missing translation</note>
 </trans-unit>
 </body>
