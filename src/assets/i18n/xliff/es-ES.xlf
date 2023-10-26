@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="es-ES" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s2ada999573d3cbb5">
+  <source>Full-Stack Web Developer</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="sb6d03495ff002e88">
+  <source>Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany.</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="s01b09ac2bd6fcb1f">
+  <source>Skills</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="s9ae6ef0237d899a0">
+  <source>Work</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="s0487f33d9ddaabde">
+  <source>About</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="s87bae2710b2492c3">
+  <source>Contact</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="sef49aec68fd1dc66">
+  <source>Name</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="sfc8150268d30cf47">
+  <source>EMail</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="sf4798c2d7afcdde8">
+  <source>Or type your message here...</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="s57adf424d57c8a0f">
+  <source>Send</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="s4b9693957a1f65c0">
+  <source>Link to Project Code</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="s6d8193e77a28ab5d">
+  <source>Link to Live Project</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+<trans-unit id="s73aa2f194e2dc1a1">
+  <source>Dropdown Box</source>
+  <target></target>
+  <note>missing translation</note>
+</trans-unit>
+</body>
+</file>
+</xliff>
