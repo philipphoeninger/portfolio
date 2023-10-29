@@ -106,6 +106,7 @@ export class Page extends LitElement {
       ></ph-menu>
       <main id="main-container">
         <a id="top"></a>
+        <a id="scroll-up" href="#top"><i class="fa-solid fa-arrow-up"></i></a>
         <mwc-circular-progress
           id="spinner"
           indeterminate
@@ -250,8 +251,6 @@ export class Page extends LitElement {
             </button>
           </form>
         </section>
-
-        <a href="#top">UP</a>
       </main>
       <footer id="footer">
         <p>Copyright &copy; 2023. All rights are reserved</p>

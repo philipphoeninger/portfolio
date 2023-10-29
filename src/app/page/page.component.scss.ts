@@ -104,6 +104,18 @@ export const style = css`
     justify-content: center; */
   }
 
+  #main-container i {
+    font-size: 25px;
+    color: var(--clr-secondary, black);
+  }
+
+  #main-container #scroll-up {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 999;
+  }
+
   #work .work-entry {
     margin-bottom: 3rem;
   }
@@ -115,6 +127,10 @@ export const style = css`
     position: absolute;
     top: 50%;
     left: 50%;
+  }
+
+  #contact {
+    margin-bottom: 3rem;
   }
 
   #contact .social {
