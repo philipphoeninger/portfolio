@@ -102,7 +102,8 @@ export const style = css`
     display: grid;
     background-color: var(--clr-primary, white);
     border-radius: 28px;
-    border: 1px solid var(--clr-secondary, black);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
+
     overflow: hidden;
     max-width: 1000px; /* der style außerhalb der component */
     padding: var(--content-padding);
