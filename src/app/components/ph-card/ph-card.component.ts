@@ -17,6 +17,7 @@ export class PhCard extends LitElement {
   @property({ type: String }) sourceUrl: string = "https://www.google.com";
   @property({ type: String }) liveUrl: string = "https://www.google.com";
   @property({ type: Array }) tags: TagModel[] = [];
+  @property({ type: Boolean }) imageOnRight: boolean = false;
 
   render() {
     return html`
@@ -24,18 +25,29 @@ export class PhCard extends LitElement {
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
       />
-      <div class="phCard">
-        <img class="phCard--image" src="" />
-        <div class="phCard--content">
-          <h3>${this.label}</h3>
-          <p class="phCard--content-text">${this.description}</p>
-          <div class="phCard--tags">
-            <ul>
-              ${this.tags?.map((tag) => html`<li>${tag.label}</li>`)}
-            </ul>
-          </div>
-          <div class="phCard--links">
-            <div class="source">
+
+      <article class="card-container">
+        <picture class="card__img order-end">
+          <source
+            srcset="images/image-product-desktop.jpg"
+            media="(min-width: 600px)"
+          />
+          <img
+            src="images/image-product-mobile.jpg"
+            alt="some description about the image"
+          />
+        </picture>
+
+        <div class="card__content">
+          <h3 class="card__title">${this.label}</h3>
+          <p>${this.description}</p>
+
+          <ul class="flex-group">
+            ${this.tags?.map((tag) => html`<li>${tag.label}</li>`)}
+          </ul>
+
+          <div class="flex-group">
+            <div class="margin-right">
               <a
                 href="${this.sourceUrl}"
                 title="${msg("Link to Project Code", { desc: "TODO" })}"
@@ -45,7 +57,7 @@ export class PhCard extends LitElement {
                 ><i class="fa-brands fa-github"></i
               ></a>
             </div>
-            <div class="live">
+            <div>
               <a
                 href="${this.liveUrl}"
                 title="${msg("Link to Live Project", { desc: "TODO" })}"
@@ -57,7 +69,7 @@ export class PhCard extends LitElement {
             </div>
           </div>
         </div>
-      </div>
+      </article>
     `;
   }
 }

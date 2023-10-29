@@ -180,6 +180,7 @@ export class Page extends LitElement {
             ${this.work.map(
               (workEntry: WorkModel) =>
                 html`<ph-card
+                  class="work-entry"
                   imageName="${workEntry.imageName}"
                   label="${workEntry.label}"
                   description="${workEntry.description}"

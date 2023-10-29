@@ -29,9 +29,11 @@ export const style = css`
 
   .container-section {
     margin-bottom: 6rem;
+    padding-inline: 3rem;
   }
 
   #showcase {
+    padding-inline: 3rem;
     margin-top: 5vh;
     height: 95vh;
     display: flex;
@@ -102,6 +104,10 @@ export const style = css`
     justify-content: center; */
   }
 
+  #work .work-entry {
+    margin-bottom: 3rem;
+  }
+
   [hidden] {
     visibility: hidden;
   }
@@ -120,6 +126,7 @@ export const style = css`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* max-width: 1000px; */
   }
 
   #contact form label {
@@ -135,6 +142,7 @@ export const style = css`
   }
 
   #contact form input {
+    /* display: block; */
     border: 1px solid var(--clr-secondary, black);
     font-family: var(--ff-main, sans-serif);
     width: 100%;
@@ -192,11 +200,5 @@ export const style = css`
     padding: 5rem;
     font-weight: bold;
     font-size: 1.25rem;
-  }
-
-  ph-card {
-    /* --ph-color-text: black;
-    --ph-color-bg: white;
-    --ph-font-family: Poppins, sans-serif; */
   }
 `;
