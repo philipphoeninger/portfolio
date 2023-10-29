@@ -101,7 +101,7 @@ export const style = css`
 
     display: grid;
     background-color: var(--clr-primary, white);
-    border-radius: 28px;
+    border-radius: 14px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
 
     overflow: hidden;
@@ -119,6 +119,7 @@ export const style = css`
       grid-template-columns: 3fr 2fr;
       grid-template-areas: "img content";
       padding: 0;
+      border-radius: 28px;
     }
 
     .card-container > * {
