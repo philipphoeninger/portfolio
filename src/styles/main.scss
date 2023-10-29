@@ -10,11 +10,22 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+@font-face {
+  font-family: "Poppins";
+  src: url('../assets/fonts/poppins_medium.ttf');
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url('../assets/fonts/poppins_bold.ttf');
+  font-weight: bold;
+}
 
 html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+  font-family: 'Poppins', sans-serif;
 }
 
 /*
@@ -86,6 +97,50 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+:root {
+  --clr-dark: #2D2E32; /* hsl(228,5,19) */
+  --clr-dark-light: #555555; /* hsl(0,0,3) */
+  --clr-light: #eceaea; /* hsl(0, 0, 85) */
+  --clr-green: #0F9D58; /*hsl(151, 83, 34) */
+  --clr-blue: #4285F4; /*hsl(217, 89, 61) */
+  --clr-red: #DB4437; /*hsl(5, 69, 54) */
+  --clr-yellow: #F4B400; /*hsl(44, 100, 48) */
+  --clr-white: #FFFFFF; /*hsl(0, 0, 100) */
+  --clr-black: #000000; /*hsl(0, 0, 0) */
+
+  --clr-primary: var(--clr-white);
+  --clr-secondary: var(--clr-dark);
+  --clr-accent: var(--clr-blue);
+
+  --ff-main: 'Poppins', sans-serif;
+  --ff-bold: 'Poppins', sans-serif;
+}
+
+.darkmode {
+  --clr-primary: var(--clr-dark);
+  --clr-secondary: var(--clr-dark-light);
+  --clr-accent: var(--clr-green);
+}
+
+.greenmode {
+  --clr-primary: var(--clr-green);
+  --clr-secondary: var(--clr-dark-light);
+  --clr-accent: var(--clr-blue);
+}
+
+.bluemode {
+  --clr-primary: var(--clr-green);
+  --clr-secondary: var(--clr-dark-light);
+  --clr-accent: var(--clr-blue);
+}
+
+.purplemode {
+  --clr-primary: var(--clr-green);
+  --clr-secondary: var(--clr-dark-light);
+  --clr-accent: var(--clr-blue);
+}
+
 
 /* ==========================================================================
    Helper classes

@@ -15,3 +15,36 @@ export const components = [
   PhSelectLocale,
   PhTooltip,
 ];
+
+let colorMode = localStorage.getItem("ph-colorMode");
+const colorModeToggle = document.querySelector("#colorModeToggle");
+
+const enableDarkMode = () => {
+  document.querySelector("#app")?.classList.add("dark");
+  localStorage.setItem("ph-colorMode", "dark");
+};
+
+const disableDarkMode = () => {
+  document.querySelector("#app")?.classList.remove("dark");
+  localStorage.removeItem("ph-colorMode");
+};
+
+if (colorMode === "dark") {
+  enableDarkMode();
+}
+
+colorModeToggle?.addEventListener("click", () => {
+  // cp suggests this:
+  // colorMode = colorMode === "dark" ? "light" : "dark";
+  // localStorage.setItem("ph-colorMode", colorMode);
+  // document.documentElement.setAttribute("ph-colorMode", colorMode);
+
+  // solution from kp:
+  // document.querySelector("#app")?.classList.remove("dark");
+  colorMode = localStorage.getItem("ph-colorMode");
+  if (colorMode !== "dark") {
+    enableDarkMode();
+  } else {
+    disableDarkMode();
+  }
+});
