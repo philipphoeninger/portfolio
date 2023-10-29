@@ -10,10 +10,38 @@ export class PhMenu extends LitElement {
     return [style];
   }
 
-  // @property({ type: Array }) options: { name: string; link: string }[] = [];
+  @property({ type: Array }) options: { name: string; link: string }[] = [];
+  @property({ type: String }) logoCaption = "";
+
+  private selectItem(event: Event) {
+    console.log(event);
+    const id = (event.target as HTMLElement).id;
+    const options = {
+      detail: { id },
+      bubbles: true,
+      composed: true,
+    };
+    this.dispatchEvent(new CustomEvent("select", options));
+  }
 
   render() {
-    return html`<p>X</p>`;
+    return html`
+      <a class="logo">${this.logoCaption}</a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"
+        ><span class="nav-icon"></span
+      ></label>
+      <div class="menu__items">
+        <ul>
+          ${this.options.map(
+            (option) =>
+              html`<li>
+                <a class="item" @click=${this.selectItem}> ${option.name} </a>
+              </li>`
+          )}
+        </ul>
+      </div>
+    `;
   }
 }
 

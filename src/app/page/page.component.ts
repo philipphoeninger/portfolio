@@ -26,12 +26,22 @@ export class Page extends LitElement {
       type: Array<WorkModel>,
       attribute: false,
     },
+    menuLinks: {
+      type: Array<{ name: string; link: string }>,
+      attribute: false,
+    },
   };
 
   constructor() {
     super();
     this.skills = data.skills || {};
     this.work = data.work || {};
+    this.menuLinks = [
+      { name: msg("Skills"), link: "todo" },
+      { name: msg("Work"), link: "todo" },
+      { name: msg("About"), link: "todo" },
+      { name: msg("Contact"), link: "todo" },
+    ];
   }
 
   connectedCallback() {
@@ -89,10 +99,10 @@ export class Page extends LitElement {
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
       />
-      <ph-select-locale></ph-select-locale>
-      <header>
-        <span>Max.dev</span><ph-menu options="${JSON.stringify()}"></ph-menu>
-      </header>
+      <ph-menu
+        logoCaption="Max.dev"
+        options="${JSON.stringify(this.menuLinks)}"
+      ></ph-menu>
       <main>
         <a id="top"></a>
         <mwc-circular-progress
@@ -205,8 +215,8 @@ export class Page extends LitElement {
               type="text"
               name="name"
               id="name"
-              size="100"
-              maxlength="100"
+              size="10"
+              maxlength="10"
               value=""
               required
               placeholder="${msg("Name", { desc: "TODO" })}"
@@ -215,8 +225,8 @@ export class Page extends LitElement {
               type="email"
               name="email"
               id="email"
-              size="100"
-              maxlength="100"
+              size="10"
+              maxlength="10"
               value=""
               required
               placeholder="${msg("EMail", { desc: "TODO" })}"
