@@ -7,19 +7,82 @@
  * Kroc Camen, and the H5BP dev community and team.
  */
 
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
+
+:root {
+  --clr-dark: #2D2E32;
+  /* hsl(228,5,19) */
+  --clr-dark-light: #555555;
+  /* hsl(0,0,3) */
+  --clr-light: #eceaea;
+  /* hsl(0, 0, 85) */
+  --clr-green: #0F9D58;
+  /*hsl(151, 83, 34) */
+  --clr-blue: #4285F4;
+  /*hsl(217, 89, 61) */
+  --clr-red: #DB4437;
+  /*hsl(5, 69, 54) */
+  --clr-yellow: #F4B400;
+  /*hsl(44, 100, 48) */
+  --clr-white: #FFFFFF;
+  /*hsl(0, 0, 100) */
+  --clr-black: #000000;
+  /*hsl(0, 0, 0) */
+
+  --clr-primary: var(--clr-white);
+  --clr-secondary: var(--clr-dark);
+  --clr-accent: var(--clr-blue);
+
+  --ff-main: 'Poppins', sans-serif;
+  --ff-bold: 'Poppins', sans-serif;
+  --ff-italic: 'Poppins', sans-serif;
+}
+
+.darkmode {
+  --clr-primary: var(--clr-dark);
+  --clr-secondary: var(--clr-dark-light);
+  --clr-accent: var(--clr-green);
+}
+
+.greenmode {
+  --clr-primary: var(--clr-green);
+  --clr-secondary: var(--clr-dark-light);
+  --clr-accent: var(--clr-blue);
+}
+
+.bluemode {
+  --clr-primary: var(--clr-green);
+  --clr-secondary: var(--clr-dark-light);
+  --clr-accent: var(--clr-blue);
+}
+
+.purplemode {
+  --clr-primary: var(--clr-green);
+  --clr-secondary: var(--clr-dark-light);
+  --clr-accent: var(--clr-blue);
+}
+
 @font-face {
   font-family: "Poppins";
   src: url('../assets/fonts/poppins_medium.ttf');
   font-weight: normal;
 }
+
 @font-face {
   font-family: "Poppins";
   src: url('../assets/fonts/poppins_bold.ttf');
   font-weight: bold;
 }
+
+@font-face {
+  font-family: "Poppins";
+  src: url('../assets/fonts/poppins_italic.ttf');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
 
 html {
   color: #222;
@@ -56,7 +119,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #ccc;
+  border-top: 3px solid var(--clr-secondary, #ccc);
   margin: 1em 0;
   padding: 0;
 }
@@ -97,49 +160,6 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
-:root {
-  --clr-dark: #2D2E32; /* hsl(228,5,19) */
-  --clr-dark-light: #555555; /* hsl(0,0,3) */
-  --clr-light: #eceaea; /* hsl(0, 0, 85) */
-  --clr-green: #0F9D58; /*hsl(151, 83, 34) */
-  --clr-blue: #4285F4; /*hsl(217, 89, 61) */
-  --clr-red: #DB4437; /*hsl(5, 69, 54) */
-  --clr-yellow: #F4B400; /*hsl(44, 100, 48) */
-  --clr-white: #FFFFFF; /*hsl(0, 0, 100) */
-  --clr-black: #000000; /*hsl(0, 0, 0) */
-
-  --clr-primary: var(--clr-white);
-  --clr-secondary: var(--clr-dark);
-  --clr-accent: var(--clr-blue);
-
-  --ff-main: 'Poppins', sans-serif;
-  --ff-bold: 'Poppins', sans-serif;
-}
-
-.darkmode {
-  --clr-primary: var(--clr-dark);
-  --clr-secondary: var(--clr-dark-light);
-  --clr-accent: var(--clr-green);
-}
-
-.greenmode {
-  --clr-primary: var(--clr-green);
-  --clr-secondary: var(--clr-dark-light);
-  --clr-accent: var(--clr-blue);
-}
-
-.bluemode {
-  --clr-primary: var(--clr-green);
-  --clr-secondary: var(--clr-dark-light);
-  --clr-accent: var(--clr-blue);
-}
-
-.purplemode {
-  --clr-primary: var(--clr-green);
-  --clr-secondary: var(--clr-dark-light);
-  --clr-accent: var(--clr-blue);
-}
 
 
 /* ==========================================================================

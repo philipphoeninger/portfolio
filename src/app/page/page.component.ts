@@ -37,6 +37,7 @@ export class Page extends LitElement {
     this.skills = data.skills || {};
     this.work = data.work || {};
     this.menuLinks = [
+      { name: msg("Home"), link: "todo" },
       { name: msg("Skills"), link: "todo" },
       { name: msg("Work"), link: "todo" },
       { name: msg("About"), link: "todo" },
@@ -103,7 +104,7 @@ export class Page extends LitElement {
         logoCaption="Max.dev"
         options="${JSON.stringify(this.menuLinks)}"
       ></ph-menu>
-      <main>
+      <main id="main-container">
         <a id="top"></a>
         <mwc-circular-progress
           id="spinner"
@@ -112,7 +113,7 @@ export class Page extends LitElement {
           style="position: absolute; top: 50%; left: 50%"
         ></mwc-circular-progress>
         <section id="showcase">
-          <picture>
+          <picture id="portrait">
             <!-- <source
       media="(min-width: 650px)"
       srcset="./src/assets/img/portrait.jpg"
@@ -122,20 +123,20 @@ export class Page extends LitElement {
       srcset="./src/assets/img/portrait.jpg"
     /> -->
             <img
-              src="./src/assets/img/portrait.jpg"
+              src="./src/assets/img/portrait.png"
               alt="Portrait Image"
               height="300"
-              width="433"
+              width="300"
             />
           </picture>
           <h1>${msg("Full-Stack Web Developer", { desc: "TODO" })}</h1>
-          <p>
+          <p id="text">
             ${msg(
               "Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany.",
               { desc: "TODO" }
             )}
           </p>
-          <div>
+          <div id="social-media">
             <ul>
               <li>
                 <a href="index.html">
@@ -166,14 +167,14 @@ export class Page extends LitElement {
           </div>
         </section>
 
-        <section id="skills">
+        <section id="skills" class="container-section">
           <h2>${msg("Skills", { desc: "TODO" })}</h2>
           <ph-select-info
             skills="${JSON.stringify(this.skills)}"
           ></ph-select-info>
         </section>
 
-        <section id="work">
+        <section id="work" class="container-section">
           <h2>${msg("Work", { desc: "TODO" })}</h2>
           <ul>
             ${this.work.map(
@@ -190,47 +191,47 @@ export class Page extends LitElement {
           </ul>
         </section>
 
-        <section id="about">
+        <section id="about" class="container-section">
           <h2>${msg("About", { desc: "TODO" })}</h2>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="container-section">
           <h2>${msg("Contact", { desc: "TODO" })}</h2>
-          <div id="mail">
+          <div id="mail" class="social">
             <a href="index.html">
               <i class="fa-solid fa-envelope"></i>
             </a>
             <a href="mailto:maxmustermann@mail.de">maxmustermann@mail.de</a>
+            <hr />
           </div>
-          <hr />
-          <div id="linkedIn">
+          <div id="linkedIn" class="social">
             <a href="index.html">
               <i class="fa-brands fa-linkedin"></i>
             </a>
             <a href="index.html">www.linkedin.com/in/max-mustermann</a>
+            <hr />
           </div>
-          <hr />
           <form action="URL" method="post" enctype="multipart/form-data">
             <input
               type="text"
               name="name"
               id="name"
               size="10"
-              maxlength="10"
+              maxlength="100"
               value=""
               required
               placeholder="${msg("Name", { desc: "TODO" })}"
-            />Textfeld
+            /><label for="name">Textfeld</label>
             <input
               type="email"
               name="email"
               id="email"
               size="10"
-              maxlength="10"
+              maxlength="100"
               value=""
               required
               placeholder="${msg("EMail", { desc: "TODO" })}"
-            />Textfeld
+            /><label for="email">Textfeld</label>
             <!--cols und rows besser in CSS setzen. Textarea hat kein value-Attribut-->
             <textarea
               name="message"
@@ -251,8 +252,8 @@ export class Page extends LitElement {
 
         <a href="#top">UP</a>
       </main>
-      <footer>
-        <p>Copyright c 2023. All rights reserved</p>
+      <footer id="footer">
+        <p>Copyright &copy; 2023. All rights are reserved</p>
       </footer>
     `;
   }
