@@ -1,5 +1,5 @@
 import { LitElement, html } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import { style } from "./ph-dropdown.component.scss.ts";
 import { msg, localized } from "@lit/localize";
 
@@ -10,9 +10,20 @@ export class PhDropdown extends LitElement {
     return [style];
   }
 
+  @property({ type: Array }) options: { id: number; caption: string }[] = [];
+
   render() {
-    return html`<div id="container">
-      ${msg("Dropdown Box", { desc: "TODO" })}
+    return html` <div id="container">
+      <select>
+        ${this.options.map(
+          (option) =>
+            html`<option value="${option.id}">${option.caption}</option>`
+        )}
+      </select>
+      <div id="icon">
+        <span class="custom-arrow"></span>
+        <span></span>
+      </div>
     </div>`;
   }
 }

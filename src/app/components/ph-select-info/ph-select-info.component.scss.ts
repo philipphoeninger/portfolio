@@ -67,6 +67,7 @@ export const style = css`
   .select-info-content {
     font-family: var(--ff-regular, sans-serif);
     padding: 1rem;
+    overflow: auto;
   }
 
   .select-info-header li {

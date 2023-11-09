@@ -1,6 +1,7 @@
 import { EnSkillArea } from "../app/models/skill-area.enum";
+import { ConfigModel } from "@app/models/config.model";
 
-export const data = {
+export const data: ConfigModel = {
   skills: [
     {
       area: EnSkillArea.frontend,
@@ -84,17 +85,17 @@ export const data = {
       tags: [
         {
           label: "JavaScript",
-          skillArea: EnSkillArea.frontend,
+          area: EnSkillArea.frontend,
           color: "#000000",
         },
         {
           label: "HTML",
-          skillArea: EnSkillArea.frontend,
+          area: EnSkillArea.frontend,
           color: "#000000",
         },
         {
           label: "CSS",
-          skillArea: EnSkillArea.frontend,
+          area: EnSkillArea.frontend,
           color: "#000000",
         },
       ],
@@ -109,17 +110,17 @@ export const data = {
       tags: [
         {
           label: "Angular",
-          skillArea: EnSkillArea.frontend,
+          area: EnSkillArea.frontend,
           color: "#000000",
         },
         {
           label: "SCSS",
-          skillArea: EnSkillArea.frontend,
+          area: EnSkillArea.frontend,
           color: "#000000",
         },
         {
           label: "C#",
-          skillArea: EnSkillArea.backend,
+          area: EnSkillArea.backend,
           color: "#000000",
         },
       ],
@@ -127,4 +128,26 @@ export const data = {
       liveUrl: "www.google.com",
     },
   ],
+  showScrollUp: true,
+  menu: {
+    showMenu: true,
+    logoCaption: "Max.dev",
+  },
+  showSpinner: true,
+  showcase: {
+    heading: "Full-Stack Web Developer",
+    description:
+      "Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany.",
+    socials: [
+      {
+        iconName: "instagram.svg",
+        url: "https://www.instagram.com/max.dev",
+      },
+      {
+        iconName: "envelope.svg",
+        url: "mailto:",
+      },
+    ],
+  },
+  showContact: true,
 };

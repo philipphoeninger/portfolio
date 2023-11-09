@@ -1,12 +1,14 @@
 import { WorkModel } from "./../models/work.model";
 import { SkillModel } from "./../models/skill.model";
-import { LitElement, html } from "lit";
+import { LitElement, html, nothing } from "lit";
 import { customElement } from "lit/decorators.js";
 import { style } from "./page.component.scss.ts";
 import { data } from "../../assets/data.ts";
 import { msg, localized, LOCALE_STATUS_EVENT } from "@lit/localize";
 import { setLocaleFromUrl } from "../localization.ts";
 import { query } from "lit/decorators/query.js";
+import { EnSkillArea } from "@app/models/skill-area.enum.ts";
+import { ConfigModel } from "./../models/config.model.ts";
 
 @customElement("app-page")
 @localized()
@@ -30,18 +32,32 @@ export class Page extends LitElement {
       type: Array<{ name: string; link: string }>,
       attribute: false,
     },
+    skillAreas: {
+      type: Array<{ id: number; caption: string }>,
+      attribute: false,
+    },
+    configData: {
+      type: ConfigModel,
+      attribute: false,
+    },
   };
 
   constructor() {
     super();
+    /** extract and process config data */
+    this.configData = data;
     this.skills = data.skills || {};
     this.work = data.work || {};
     this.menuLinks = [
-      { name: msg("Home"), link: "todo" },
-      { name: msg("Skills"), link: "todo" },
-      { name: msg("Work"), link: "todo" },
-      { name: msg("About"), link: "todo" },
-      { name: msg("Contact"), link: "todo" },
+      { id: "", name: msg("Home") },
+      { id: "", name: msg("Skills"), link: "todo" },
+      { id: "", name: msg("Work"), link: "todo" },
+      { id: "", name: msg("About"), link: "todo" },
+      { id: "", name: msg("Contact"), link: "todo" },
+    ];
+    this.skillAreas = [
+      { id: 0, caption: "Frontend" },
+      { id: 1, caption: "Backend" },
     ];
   }
 
@@ -95,87 +111,54 @@ export class Page extends LitElement {
         console.error(`Error loading locale: ${(e as Error).message}`);
       }
     };
-    return html`
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      />
-      <ph-menu
-        logoCaption="Max.dev"
-        options="${JSON.stringify(this.menuLinks)}"
-      ></ph-menu>
-      <main id="main-container">
-        <a id="top"></a>
-        <a id="scroll-up" href="#top"><i class="fa-solid fa-arrow-up"></i></a>
-        <mwc-circular-progress
+
+    let menu =
+      this.configData.menu && this.configData.menu.showMenu
+        ? html`<ph-menu
+            logoCaption="${this.configData.menu.logoCaption}"
+            options="${JSON.stringify(this.menuLinks)}"
+          ></ph-menu>`
+        : nothing;
+
+    let scrollUp = this.configData.showScrollUp
+      ? html`<a id="scroll-up" href="#top"
+          ><i class="fa-solid fa-arrow-up"></i
+        ></a>`
+      : nothing;
+
+    let spinner = this.configData.showSpinner
+      ? html`<mwc-circular-progress
           id="spinner"
           indeterminate
           hidden
           style="position: absolute; top: 50%; left: 50%"
-        ></mwc-circular-progress>
-        <section id="showcase">
-          <picture id="portrait">
-            <!-- <source
-      media="(min-width: 650px)"
-      srcset="./src/assets/img/portrait.jpg"
-    />
-    <source
-      media="(min-width: 465px)"
-      srcset="./src/assets/img/portrait.jpg"
-    /> -->
-            <img
-              src="./src/assets/img/portrait.png"
-              alt="Portrait Image"
-              height="300"
-              width="300"
-            />
-          </picture>
-          <h1>${msg("Full-Stack Web Developer", { desc: "TODO" })}</h1>
-          <p id="text">
-            ${msg(
-              "Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany.",
-              { desc: "TODO" }
-            )}
-          </p>
-          <div id="social-media">
-            <ul>
-              <li>
-                <a href="index.html">
-                  <i class="fa-brands fa-instagram"></i>
-                </a>
-              </li>
-              <li>
-                <a href="index.html">
-                  <i class="fa-solid fa-envelope"></i>
-                </a>
-              </li>
-              <li>
-                <a href="index.html">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-              </li>
-              <li>
-                <a href="index.html">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-              </li>
-              <li>
-                <a href="index.html">
-                  <i class="fa-solid fa-download"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </section>
+        ></mwc-circular-progress>`
+      : nothing;
 
-        <section id="skills" class="container-section">
+    let showcase = this.configData.showcase
+      ? html`<ph-showcase
+          heading="${msg(JSON.stringify(this.configData.showcase.heading), {
+            desc: "TODO",
+          })}"
+          description="${msg(
+            JSON.stringify(this.configData.showcase.description),
+            { desc: "TODO" }
+          )}"
+        ></ph-showcase>`
+      : nothing;
+
+    let skills = this.configData.skills
+      ? html`<section id="skills" class="container-section">
           <h2>${msg("Skills", { desc: "TODO" })}</h2>
           <ph-select-info
             skills="${JSON.stringify(this.skills)}"
+            skillAreas="${JSON.stringify(this.skillAreas)}"
           ></ph-select-info>
-        </section>
+        </section>`
+      : nothing;
 
-        <section id="work" class="container-section">
+    let work = this.configData.work
+      ? html`<section id="work" class="container-section">
           <h2>${msg("Work", { desc: "TODO" })}</h2>
           <ul>
             ${this.work.map(
@@ -191,13 +174,17 @@ export class Page extends LitElement {
                 ></ph-card>`
             )}
           </ul>
-        </section>
+        </section>`
+      : nothing;
 
-        <section id="about" class="container-section">
+    let about = this.configData.about
+      ? html`<section id="about" class="container-section">
           <h2>${msg("About", { desc: "TODO" })}</h2>
-        </section>
+        </section>`
+      : nothing;
 
-        <section id="contact" class="container-section">
+    let contact = this.configData.showContact
+      ? html` <section id="contact" class="container-section">
           <h2>${msg("Contact", { desc: "TODO" })}</h2>
           <div id="mail" class="social">
             <a href="index.html">
@@ -250,7 +237,18 @@ export class Page extends LitElement {
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </form>
-        </section>
+        </section>`
+      : nothing;
+
+    return html`
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      />
+      ${menu}
+      <main id="main-container">
+        <a id="top"></a>
+        ${scrollUp} ${spinner} ${showcase} ${skills} ${work} ${about} ${contact}
       </main>
       <footer id="footer">
         <p>Copyright &copy; 2023. All rights are reserved</p>

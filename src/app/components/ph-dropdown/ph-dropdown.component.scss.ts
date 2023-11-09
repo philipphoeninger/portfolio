@@ -12,6 +12,27 @@ export const style = css`
   }
 
   #container {
-    border: 1px solid black;
+    border-bottom: 1px solid black;
+    position: relative;
+  }
+
+  #container select {
+    font-size: 1.25rem;
+    padding: 0.5em 3em 0.5em 1em;
+    background-color: var(--clr-primary, white);
+    color: var(--clr-secondary, black);
+    border: none;
+    width: 100%;
+  }
+
+  #container select:focus {
+    border: none;
+  }
+
+  #icon {
+    background: red;
+    height: 100%;
+    width: 4em;
+    position: relative;
   }
 `;

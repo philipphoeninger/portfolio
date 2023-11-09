@@ -10,10 +10,11 @@ export class PhSelectInfo extends LitElement {
   }
 
   @property({ type: Array }) skills: SkillModel[] = [];
+  @property({ type: Array }) skillAreas: { id: number; caption: string }[] = [];
 
   render() {
     return html`
-      <ph-dropdown>X</ph-dropdown>
+      <ph-dropdown options="${JSON.stringify(this.skillAreas)}"></ph-dropdown>
       <div class="select-info-container">
         <div class="select-info-header">
           <ul>
