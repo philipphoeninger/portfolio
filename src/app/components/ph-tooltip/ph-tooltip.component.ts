@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit";
 import { customElement } from "lit/decorators.js";
-import { style } from "./ph-tooltip.component.scss.ts";
+import { style } from "./ph-tooltip.component.css.ts";
 import { msg, localized } from "@lit/localize";
 
 @customElement("ph-tooltip")

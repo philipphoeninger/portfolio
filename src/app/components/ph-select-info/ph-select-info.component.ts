@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { style } from "./ph-select-info.component.scss.ts";
+import { style } from "./ph-select-info.component.css.ts";
 import { SkillModel } from "@app/models/skill.model.ts";
 
 @customElement("ph-select-info")

@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { style } from "./ph-select-locale.component.scss.ts";
+import { style } from "./ph-select-locale.component.css.ts";
 import { getLocale, setLocaleFromUrl } from "../../localization.ts";
 import { localized } from "@lit/localize";
 import { allLocales } from "../../../assets/i18n/locale-codes.js";
@@ -36,6 +36,12 @@ export class PhSelectLocale extends LitElement {
   }
 
   render() {
+    // <img
+    //   src="./src/assets/img/es.png"
+    //   alt="Portrait Image"
+    //   height="27"
+    //   width="40"
+    // />;
     return html`<select @change=${this.localeChanged}>
       ${allLocales.map(
         (locale) =>

@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { style } from "./ph-menu.component.scss.ts";
+import { style } from "./ph-menu.component.css.ts";
 import { msg, localized, LOCALE_STATUS_EVENT } from "@lit/localize";
 
 @customElement("ph-menu")

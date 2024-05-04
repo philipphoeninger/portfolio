@@ -2,7 +2,7 @@ import { WorkModel } from "./../models/work.model";
 import { SkillModel } from "./../models/skill.model";
 import { LitElement, html, nothing } from "lit";
 import { customElement } from "lit/decorators.js";
-import { style } from "./page.component.scss.ts";
+import { style } from "./page.component.css.ts";
 import { data } from "../../assets/data.ts";
 import { msg, localized, LOCALE_STATUS_EVENT } from "@lit/localize";
 import { setLocaleFromUrl } from "../localization.ts";

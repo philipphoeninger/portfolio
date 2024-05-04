@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { style } from "./ph-card.component.scss.ts";
+import { style } from "./ph-card.component.css.ts";
 import { TagModel } from "@app/models/tag.model.ts";
 import { msg, localized } from "@lit/localize";
 

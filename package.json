@@ -12,7 +12,6 @@
   },
   "devDependencies": {
     "@lit/localize-tools": "^0.7.0",
-    "sass": "^1.69.2",
     "typedjson": "^1.8.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.5"
