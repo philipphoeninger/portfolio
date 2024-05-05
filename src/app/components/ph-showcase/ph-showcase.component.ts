@@ -21,30 +21,31 @@ export class PhShowcase extends LitElement {
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
       />
       <section id="showcase">
-        <p id="author-name">Max Mustermann</p>
-        <h1>${this.heading}</h1>
-        <p id="text">${this.description}</p>
-        <div id="button-group" style="">
-          <div id="action-button">Contact me</div>
-          <div id="arrow">
-            <i class="fa-solid fa-arrow-down-long"></i>
+        <div id="text-container">
+          <p id="name">Max Mustermann</p>
+          <h1>${this.heading}</h1>
+          <p id="text">${this.description}</p>
+          <div id="button-group" style="">
+            <div id="action-button">Contact me</div>
+            <div id="arrow">
+              <i class="fa-solid fa-arrow-down-long"></i>
+            </div>
           </div>
         </div>
         <picture id="portrait">
-          <!-- <source
-      media="(min-width: 650px)"
-      srcset="./src/assets/img/portrait.jpg"
-    />
-    <source
-      media="(min-width: 465px)"
-      srcset="./src/assets/img/portrait.jpg"
-    /> -->
-          <img
-            src="./src/assets/img/portrait.png"
-            alt="Portrait Image"
-            height="300"
-            width="300"
+          <source
+            media="(min-width: 1250px)"
+            srcset="./src/assets/img/portrait.jpg"
           />
+          <source
+            media="(min-width: 769px)"
+            srcset="./src/assets/img/portrait.png"
+          />
+          <source
+            media="(min-width: 498px)"
+            srcset="./src/assets/img/portrait.jpg"
+          />
+          <img src="./src/assets/img/portrait.png" alt="Portrait Image" />
         </picture>
         <div id="social-media">
           <ul>

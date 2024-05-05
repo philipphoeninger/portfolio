@@ -12,14 +12,15 @@ export const style = css`
   }
 
   #showcase {
-    height: 95vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 95vh;
+    max-width: 1400px;
+    align-items: left;
     justify-content: center;
     text-align: left;
 
-    #author-name {
+    #name {
       margin: 0 auto 0 0;
       color: var(--clr-accent, black);
       font-style: italic;
@@ -123,6 +124,91 @@ export const style = css`
         i {
           font-size: 25px;
           color: var(--clr-secondary, black);
+        }
+      }
+    }
+  }
+
+  @media (min-width: 580px) {
+    #showcase {
+      #button-group {
+        margin: 1rem auto 0;
+
+        #social-media {
+          ul {
+            li {
+              margin: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 769px) {
+    #showcase {
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      column-gap: 4em;
+      grid-template-areas:
+        ". ."
+        "portrait text"
+        "portrait icons"
+        ". .";
+      grid-template-rows: 1fr 2fr 40px 2fr;
+
+      #text-container {
+        grid-area: text;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+      }
+
+      #button-group {
+        margin: 1rem auto 0 0;
+      }
+
+      #portrait {
+        grid-area: portrait;
+        margin-top: 0;
+
+        img {
+          height: 20em;
+
+          width: 100%;
+          height: auto;
+          min-height: 356px;
+          max-height: 400px;
+          object-fit: cover;
+          object-position: center top;
+        }
+      }
+
+      #social-media {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        grid-area: icons;
+
+        ul {
+          justify-content: left;
+          padding-left: 0;
+          li {
+            margin-right: 3rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1250px) {
+    #showcase {
+      #portrait {
+        img {
+          min-height: 400px;
         }
       }
     }
