@@ -19,10 +19,9 @@ export class Page extends LitElement {
   }
 
   @query("#spinner", true) _spinner: any;
-  @query("#top", true) _top: any;
+  @query("#scroll-up", true) _scrollUp: any;
   @query("ph-menu", true) _menu: any;
-  @query("#work", true)
-  _work: any;
+  @query("#work", true) _work: any;
   @query("#skills", true) _skills: any;
   @query("#contact", true) _contact: any;
 
@@ -75,6 +74,8 @@ export class Page extends LitElement {
       { id: 0, caption: "Frontend" },
       { id: 1, caption: "Backend" },
     ];
+
+    this.handleScrollEvents();
   }
 
   connectedCallback() {
@@ -118,7 +119,8 @@ export class Page extends LitElement {
   scrollToSection(event: CustomEvent) {
     switch (event.detail?.id) {
       case EnMenuOption.Home:
-        this._top?.scrollIntoView({ behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        // this._scrollUp?.classList.add("scroll--hidden"); --> makes to arrow disappear earlier
         break;
       case EnMenuOption.Skills:
         this._skills?.scrollIntoView({ behavior: "smooth" });
@@ -136,6 +138,24 @@ export class Page extends LitElement {
     }
   }
 
+  /**
+   * Handle scroll events to show/hide menu and scroll up button
+   */
+  handleScrollEvents() {
+    let lastScrollY = window.scrollY;
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.scrollY;
+      if (lastScrollY < currentScroll) {
+        this._menu?.classList.add("menu--hidden");
+        this._scrollUp?.classList.remove("scroll--hidden");
+      } else {
+        this._menu?.classList.remove("menu--hidden");
+      }
+      if (window.scrollY === 0) this._scrollUp?.classList.add("scroll--hidden");
+      lastScrollY = currentScroll;
+    });
+  }
+
   render() {
     async () => {
       try {
@@ -149,18 +169,6 @@ export class Page extends LitElement {
       }
     };
 
-    // hide menu on scroll down, show on scroll up
-    let lastScrollY = window.scrollY;
-    window.addEventListener("scroll", () => {
-      const currentScroll = window.scrollY;
-      if (lastScrollY < currentScroll) {
-        this._menu?.classList.add("menu--hidden");
-      } else {
-        this._menu?.classList.remove("menu--hidden");
-      }
-      lastScrollY = currentScroll;
-    });
-
     let menu =
       this.configData.menu && this.configData.menu.showMenu
         ? html`<ph-menu
@@ -172,7 +180,7 @@ export class Page extends LitElement {
         : nothing;
 
     let scrollUp = this.configData.showScrollUp
-      ? html`<a id="scroll-up" href="#top"
+      ? html`<a id="scroll-up" class="scroll--hidden" href="#top"
           ><i class="fa-solid fa-arrow-up"></i
         ></a>`
       : nothing;
@@ -188,13 +196,12 @@ export class Page extends LitElement {
 
     let showcase = this.configData.showcase
       ? html`<ph-showcase
-          heading="${msg(JSON.stringify(this.configData.showcase.heading), {
+          heading="${msg(this.configData.showcase.heading, {
             desc: "TODO",
           })}"
-          description="${msg(
-            JSON.stringify(this.configData.showcase.description),
-            { desc: "TODO" }
-          )}"
+          description="${msg(this.configData.showcase.description, {
+            desc: "TODO",
+          })}"
         ></ph-showcase>`
       : nothing;
 
@@ -298,7 +305,6 @@ export class Page extends LitElement {
       />
       ${menu}
       <main id="main-container">
-        <a id="top"></a>
         ${scrollUp} ${spinner} ${showcase} ${skills} ${about} ${contact}
       </main>
       <footer id="footer">

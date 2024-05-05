@@ -28,6 +28,14 @@ export const style = css`
     /* display: none; */
   }
 
+  #scroll-up {
+    transition: transform 0.2s;
+  }
+
+  .scroll--hidden {
+    transform: translateY(calc(3rem + 28px));
+  }
+
   #main-container {
     padding: 0 1.5rem;
     text-align: center;
