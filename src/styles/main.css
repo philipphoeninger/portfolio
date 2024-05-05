@@ -13,7 +13,7 @@
   /* hsl(228,5,19) */
   --clr-dark-light: #555555;
   /* hsl(0,0,3) */
-  --clr-light: #eceaea;
+  --clr-light: #e5e5e5;
   /* hsl(0, 0, 85) */
   --clr-green: #0F9D58;
   /*hsl(151, 83, 34) */
@@ -28,13 +28,15 @@
   --clr-black: #000000;
   /*hsl(0, 0, 0) */
 
-  --clr-primary: var(--clr-white);
+  --clr-primary: var(--clr-light);
   --clr-secondary: var(--clr-dark);
   --clr-accent: var(--clr-blue);
 
   --ff-main: 'Poppins', sans-serif;
   --ff-bold: 'Poppins', sans-serif;
   --ff-italic: 'Poppins', sans-serif;
+
+  --menu-height: 72px;
 }
 
 .darkmode {

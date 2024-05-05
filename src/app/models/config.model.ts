@@ -11,6 +11,7 @@ export class ConfigModel {
   menu?: {
     showMenu: boolean;
     logoCaption: string;
+    showLanguageSelector: boolean;
   };
   @jsonMember({ constructor: Boolean })
   showSpinner: boolean = true;

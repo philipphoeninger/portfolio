@@ -131,7 +131,8 @@ export const data: ConfigModel = {
   showScrollUp: true,
   menu: {
     showMenu: true,
-    logoCaption: "Max.dev",
+    logoCaption: "Max Mustermann",
+    showLanguageSelector: true,
   },
   showSpinner: true,
   showcase: {

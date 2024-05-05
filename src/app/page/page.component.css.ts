@@ -12,9 +12,9 @@ export const style = css`
   }
 
   :host {
-    /* color: var(--clr-secondary, white);
-    background-color: var(--clr-primary, black);
-    font-family: var(--ff-main, sans-serif); */
+    /* color: var(--clr-secondary, white); */
+    background-color: var(--clr-primary, white);
+    /* font-family: var(--ff-main, sans-serif); */
 
     display: flex;
     flex-direction: column;
@@ -23,18 +23,15 @@ export const style = css`
     /* background-color: var(--ph-color-bg); */
   }
 
-  h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  .container-section {
-    margin-bottom: 6rem;
-    padding-inline: 3rem;
+  ph-menu.menu--hidden {
+    transform: translateY(calc(var(--menu-height) * -1));
+    /* display: none; */
   }
 
   #main-container {
     padding: 0 1.5rem;
     text-align: center;
+    padding-top: var(--menu-height);
     /* display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,6 +48,15 @@ export const style = css`
     bottom: 3rem;
     right: 3rem;
     z-index: 999;
+  }
+
+  .container-section {
+    margin-bottom: 6rem;
+    padding-inline: 3rem;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
   }
 
   #work .work-entry {

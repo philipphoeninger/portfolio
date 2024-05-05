@@ -9,16 +9,19 @@ export const style = css`
 
   :host {
     --padding-inline: 25px;
+
     color: var(--clr-secondary, black);
     background-color: var(--clr-primary, white);
+    border-bottom: 1px solid rgba(47, 49, 48, 0.05);
     font-family: var(--ff-main, sans-serif);
-    font-weight: bold;
-    font-size: 24px;
+    font-weight: 500;
+    font-size: 18px;
     box-sizing: border-box;
     display: block;
-    height: 8vh;
+    height: var(--menu-height);
     position: fixed;
     width: 100%;
+    transition: transform 0.3s;
     z-index: 100;
   }
 
@@ -41,14 +44,14 @@ export const style = css`
     height: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: height 0.2s ease-out;
+    transition: height 0.3s ease-out;
     background-color: var(--clr-primary, white);
     width: 100%;
   }
 
   a {
     text-decoration: none;
-    /* color: var(--clr-secondary, white); */
+    color: var(--clr-secondary, white);
   }
 
   .menu__items li {
@@ -56,19 +59,24 @@ export const style = css`
     cursor: pointer;
   }
 
-  .menu__items li:hover {
-    background-color: var(--clr-light, #d9d9d9);
-  }
-
   .menu__items a {
     display: block;
     text-align: center;
   }
 
+  .menu__items li.highlighted a {
+    border-radius: 5px;
+    border: 1px solid var(--clr-accent, blue);
+    width: fit-content;
+    margin: auto;
+    padding: 5px 45px;
+    color: var(--clr-accent, blue);
+  }
+
   .logo {
     float: left;
     display: flex;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     height: 100%;
     justify-content: center;
     align-items: center;
@@ -89,10 +97,10 @@ export const style = css`
     background: var(--clr-secondary, black);
     display: block;
     height: 3px;
-    width: 20px;
-    border-radius: 15px;
+    width: 22px;
+    border-radius: 20px;
     position: relative;
-    transition: background 0.2s ease-out;
+    transition: background 0.3s ease-out;
   }
 
   .nav-icon:before {
@@ -101,10 +109,10 @@ export const style = css`
     display: block;
     height: 100%;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
     position: absolute;
     top: 7px;
-    transition: all 0.2s ease-out;
+    transition: all 0.3s ease-out;
   }
 
   .nav-icon:after {
@@ -113,10 +121,10 @@ export const style = css`
     display: block;
     height: 100%;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
     position: absolute;
     top: -7px;
-    transition: all 0.2s ease-out;
+    transition: all 0.3s ease-out;
   }
 
   .menu-btn {
@@ -124,7 +132,9 @@ export const style = css`
   }
 
   .menu-btn:checked ~ .menu__items {
-    height: 92vh;
+    height: 35vh;
+    min-height: fit-content;
+    box-shadow: 0 20px 20px -20px #dad6d3;
   }
 
   .menu-btn:checked ~ .menu-icon .nav-icon {
@@ -140,12 +150,19 @@ export const style = css`
   }
 
   @media (min-width: 48em) {
-    :host {
-      font-size: 20px;
-    }
-
     ul {
       height: 100%;
+    }
+
+    .menu__items {
+      clear: none;
+      float: right;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      height: 100%;
+      padding-right: calc(var(--padding-inline) - 5px);
     }
 
     .menu__items li {
@@ -159,15 +176,8 @@ export const style = css`
       justify-content: center;
     }
 
-    .menu__items {
-      clear: none;
-      float: right;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: auto;
-      height: 100%;
-      padding-right: calc(var(--padding-inline) - 5px);
+    .menu__items li.highlighted a {
+      padding: 5px 15px;
     }
 
     .menu-icon {

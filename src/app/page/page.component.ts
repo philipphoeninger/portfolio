@@ -9,6 +9,7 @@ import { setLocaleFromUrl } from "../localization.ts";
 import { query } from "lit/decorators/query.js";
 import { EnSkillArea } from "@app/models/skill-area.enum.ts";
 import { ConfigModel } from "./../models/config.model.ts";
+import { EnMenuOption } from "./../models/menuOption.enum.ts";
 
 @customElement("app-page")
 @localized()
@@ -18,6 +19,12 @@ export class Page extends LitElement {
   }
 
   @query("#spinner", true) _spinner: any;
+  @query("#top", true) _top: any;
+  @query("ph-menu", true) _menu: any;
+  @query("#work", true)
+  _work: any;
+  @query("#skills", true) _skills: any;
+  @query("#contact", true) _contact: any;
 
   static properties = {
     skills: {
@@ -29,7 +36,7 @@ export class Page extends LitElement {
       attribute: false,
     },
     menuLinks: {
-      type: Array<{ name: string; link: string }>,
+      type: Array<{ id: number; name: string; link: string }>,
       attribute: false,
     },
     skillAreas: {
@@ -49,11 +56,20 @@ export class Page extends LitElement {
     this.skills = data.skills || {};
     this.work = data.work || {};
     this.menuLinks = [
-      { id: "", name: msg("Home") },
-      { id: "", name: msg("Skills"), link: "todo" },
-      { id: "", name: msg("Work"), link: "todo" },
-      { id: "", name: msg("About"), link: "todo" },
-      { id: "", name: msg("Contact"), link: "todo" },
+      { id: EnMenuOption.Home, name: msg("Home") },
+      {
+        id: EnMenuOption.Skills,
+        name: msg("Skills"),
+      },
+      {
+        id: EnMenuOption.About,
+        name: msg("About"),
+      },
+      {
+        id: EnMenuOption.Contact,
+        name: msg("Contact me"),
+        highlighted: true,
+      },
     ];
     this.skillAreas = [
       { id: 0, caption: "Frontend" },
@@ -99,6 +115,27 @@ export class Page extends LitElement {
     window.removeEventListener(LOCALE_STATUS_EVENT, this.setSpinnerVisibility);
   }
 
+  scrollToSection(event: CustomEvent) {
+    switch (event.detail?.id) {
+      case EnMenuOption.Home:
+        this._top?.scrollIntoView({ behavior: "smooth" });
+        break;
+      case EnMenuOption.Skills:
+        this._skills?.scrollIntoView({ behavior: "smooth" });
+        break;
+      case EnMenuOption.Work:
+        this._work?.scrollIntoView({ behavior: "smooth" });
+        break;
+      case EnMenuOption.About:
+        // this._about?.scrollIntoView({ behavior: "smooth" });
+        // TODO
+        break;
+      case EnMenuOption.Contact:
+        this._contact?.scrollIntoView({ behavior: "smooth" });
+        break;
+    }
+  }
+
   render() {
     async () => {
       try {
@@ -112,11 +149,25 @@ export class Page extends LitElement {
       }
     };
 
+    // hide menu on scroll down, show on scroll up
+    let lastScrollY = window.scrollY;
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.scrollY;
+      if (lastScrollY < currentScroll) {
+        this._menu?.classList.add("menu--hidden");
+      } else {
+        this._menu?.classList.remove("menu--hidden");
+      }
+      lastScrollY = currentScroll;
+    });
+
     let menu =
       this.configData.menu && this.configData.menu.showMenu
         ? html`<ph-menu
             logoCaption="${this.configData.menu.logoCaption}"
             options="${JSON.stringify(this.menuLinks)}"
+            showLanguageSelector="${this.configData.menu.showLanguageSelector}"
+            @onSelect="${(e: CustomEvent) => this.scrollToSection(e)}"
           ></ph-menu>`
         : nothing;
 
@@ -248,7 +299,7 @@ export class Page extends LitElement {
       ${menu}
       <main id="main-container">
         <a id="top"></a>
-        ${scrollUp} ${spinner} ${showcase} ${skills} ${work} ${about} ${contact}
+        ${scrollUp} ${spinner} ${showcase} ${skills} ${about} ${contact}
       </main>
       <footer id="footer">
         <p>Copyright &copy; 2023. All rights are reserved</p>
