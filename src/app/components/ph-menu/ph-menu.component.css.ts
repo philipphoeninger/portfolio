@@ -8,7 +8,7 @@ export const style = css`
   }
 
   :host {
-    --padding-inline: 25px;
+    --padding-inline: 20px;
 
     color: var(--clr-secondary, black);
     background-color: var(--clr-primary, white);

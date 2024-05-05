@@ -37,6 +37,8 @@
   --ff-italic: 'Poppins', sans-serif;
 
   --menu-height: 72px;
+
+  --min-padding: 20px;
 }
 
 .darkmode {

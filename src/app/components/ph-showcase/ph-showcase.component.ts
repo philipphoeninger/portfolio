@@ -21,6 +21,15 @@ export class PhShowcase extends LitElement {
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
       />
       <section id="showcase">
+        <p id="author-name">Max Mustermann</p>
+        <h1>${this.heading}</h1>
+        <p id="text">${this.description}</p>
+        <div id="button-group" style="">
+          <div id="action-button">Contact me</div>
+          <div id="arrow">
+            <i class="fa-solid fa-arrow-down-long"></i>
+          </div>
+        </div>
         <picture id="portrait">
           <!-- <source
       media="(min-width: 650px)"
@@ -37,8 +46,6 @@ export class PhShowcase extends LitElement {
             width="300"
           />
         </picture>
-        <h1>${this.heading}</h1>
-        <p id="text">${this.description}</p>
         <div id="social-media">
           <ul>
             <li>

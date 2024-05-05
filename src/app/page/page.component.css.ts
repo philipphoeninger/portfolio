@@ -28,34 +28,32 @@ export const style = css`
     /* display: none; */
   }
 
-  #scroll-up {
-    transition: transform 0.2s;
-  }
-
-  .scroll--hidden {
-    transform: translateY(calc(3rem + 28px));
-  }
-
   #main-container {
-    padding: 0 1.5rem;
+    padding: var(--menu-height) var(--min-padding) 0;
     text-align: center;
-    padding-top: var(--menu-height);
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center; */
+
+    i {
+      font-size: 25px;
+      color: var(--clr-secondary, black);
+    }
+
+    #scroll-up {
+      position: fixed;
+      bottom: 3rem;
+      right: 3rem;
+      transition: transform 0.2s;
+      z-index: 999;
+    }
+
+    .scroll--hidden {
+      transform: translateY(calc(3rem + 28px));
+    }
   }
 
-  #main-container i {
-    font-size: 25px;
-    color: var(--clr-secondary, black);
-  }
-
-  #main-container #scroll-up {
-    position: fixed;
-    bottom: 3rem;
-    right: 3rem;
-    z-index: 999;
+  h2 {
+    margin-bottom: 1.5rem;
   }
 
   .container-section {
@@ -63,12 +61,10 @@ export const style = css`
     padding-inline: 3rem;
   }
 
-  h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  #work .work-entry {
-    margin-bottom: 3rem;
+  #work {
+    .work-entry {
+      margin-bottom: 3rem;
+    }
   }
 
   [hidden] {
@@ -82,84 +78,84 @@ export const style = css`
 
   #contact {
     margin-bottom: 3rem;
-  }
 
-  #contact .social {
-    margin: 2rem 0;
-  }
+    a {
+      display: block;
+      color: var(--clr-secondary, black);
+      text-decoration: none;
+    }
 
-  #contact form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* max-width: 1000px; */
-  }
+    i {
+      font-size: 25px;
+    }
 
-  #contact form label {
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
+    hr {
+      margin-top: 2rem;
+      width: 35%;
+      margin-inline: auto;
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid var(--clr-secondary, #ccc);
+      padding: 0;
+    }
 
-  #contact form input {
-    /* display: block; */
-    border: 1px solid var(--clr-secondary, black);
-    font-family: var(--ff-main, sans-serif);
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 0.5rem;
-    border-radius: 7px;
-  }
+    .social {
+      margin: 2rem 0;
+    }
 
-  #contact form textarea {
-    border: 1px solid var(--clr-secondary, black);
-    font-family: var(--ff-main, sans-serif);
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 0.5rem;
-    border-radius: 7px;
-  }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* max-width: 1000px; */
 
-  #contact form button {
-    background-color: var(--clr-primary, white);
-    border: 1px solid var(--clr-secondary, black);
-    border-radius: 7px;
-    font-family: var(--ff-main, sans-serif);
-    padding: 8px;
-    margin-left: auto;
-  }
+      label {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
 
-  #contact form button i {
-    font-size: 18px;
-    color: #32b73f;
-  }
+      input {
+        /* display: block; */
+        border: 1px solid var(--clr-secondary, black);
+        font-family: var(--ff-main, sans-serif);
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 0.5rem;
+        border-radius: 7px;
+      }
 
-  #contact a {
-    display: block;
-    color: var(--clr-secondary, black);
-    text-decoration: none;
-  }
+      textarea {
+        border: 1px solid var(--clr-secondary, black);
+        font-family: var(--ff-main, sans-serif);
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 0.5rem;
+        border-radius: 7px;
+      }
 
-  #contact i {
-    font-size: 25px;
-  }
+      button {
+        background-color: var(--clr-primary, white);
+        border: 1px solid var(--clr-secondary, black);
+        border-radius: 7px;
+        font-family: var(--ff-main, sans-serif);
+        padding: 8px;
+        margin-left: auto;
 
-  #contact hr {
-    margin-top: 2rem;
-    width: 35%;
-    margin-inline: auto;
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid var(--clr-secondary, #ccc);
-    padding: 0;
+        i {
+          font-size: 18px;
+          color: #32b73f;
+        }
+      }
+    }
   }
 
   #footer {

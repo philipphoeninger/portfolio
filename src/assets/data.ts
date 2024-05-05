@@ -138,7 +138,7 @@ export const data: ConfigModel = {
   showcase: {
     heading: "Full-Stack Web Developer",
     description:
-      "Hi, I'm Max, an aspiring Full-Stack Web Developer based in Munich, Germany.",
+      "I develop applications for businesses. This is some dummy text to check out the responsiveness of my layout. Have fun.",
     socials: [
       {
         iconName: "instagram.svg",
