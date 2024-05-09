@@ -2,6 +2,10 @@ import { EnSkillArea } from "../app/models/skill-area.enum";
 import { ConfigModel } from "@app/models/config.model";
 
 export const data: ConfigModel = {
+  personalInfo: {
+    name: "Max Mustermann",
+    mail: "maxmustermann@mail.de",
+  },
   skills: [
     {
       area: EnSkillArea.frontend,

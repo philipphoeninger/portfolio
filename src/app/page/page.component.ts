@@ -56,14 +56,14 @@ export class Page extends LitElement {
     this.work = data.work || {};
     this.menuLinks = [
       { id: EnMenuOption.Home, name: msg("Home") },
-      {
-        id: EnMenuOption.Skills,
-        name: msg("Skills"),
-      },
-      {
-        id: EnMenuOption.About,
-        name: msg("About"),
-      },
+      // {
+      //   id: EnMenuOption.Skills,
+      //   name: msg("Skills"),
+      // },
+      // {
+      //   id: EnMenuOption.About,
+      //   name: msg("About"),
+      // },
       {
         id: EnMenuOption.Contact,
         name: msg("Contact me"),
@@ -243,58 +243,14 @@ export class Page extends LitElement {
 
     let contact = this.configData.showContact
       ? html` <section id="contact" class="container-section">
-          <h2>${msg("Contact", { desc: "TODO" })}</h2>
-          <div id="mail" class="social">
-            <a href="index.html">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a href="mailto:maxmustermann@mail.de">maxmustermann@mail.de</a>
-            <hr />
+          <div class="heading">
+            <span class="heading-text">Work with me</span>
+            <h2>${msg("Contact", { desc: "TODO" })}</h2>
           </div>
-          <div id="linkedIn" class="social">
-            <a href="index.html">
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="index.html">www.linkedin.com/in/max-mustermann</a>
-            <hr />
-          </div>
-          <form action="URL" method="post" enctype="multipart/form-data">
-            <input
-              type="text"
-              name="name"
-              id="name"
-              size="10"
-              maxlength="100"
-              value=""
-              required
-              placeholder="${msg("Name", { desc: "TODO" })}"
-            /><label for="name">Textfeld</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              size="10"
-              maxlength="100"
-              value=""
-              required
-              placeholder="${msg("EMail", { desc: "TODO" })}"
-            /><label for="email">Textfeld</label>
-            <!--cols und rows besser in CSS setzen. Textarea hat kein value-Attribut-->
-            <textarea
-              name="message"
-              id="message"
-              cols="20"
-              rows="5"
-              wrap="virtual"
-              placeholder="${msg("Or type your message here...", {
-                desc: "TODO",
-              })}"
-            ></textarea>
-            <button type="submit">
-              ${msg("Send", { desc: "TODO" })}
-              <i class="fa-solid fa-paper-plane"></i>
-            </button>
-          </form>
+          <ph-contact
+            name="${this.configData.personalInfo.name}"
+            mail="${this.configData.personalInfo.mail}"
+          ></ph-contact>
         </section>`
       : nothing;
 
@@ -305,7 +261,11 @@ export class Page extends LitElement {
       />
       ${menu}
       <main id="main-container">
-        ${scrollUp} ${spinner} ${showcase} ${skills} ${about} ${contact}
+        ${scrollUp} ${spinner} ${showcase}
+        <section id="scroller" class="container-section">
+          <ph-scroller></ph-scroller>
+        </section>
+        ${contact}
       </main>
       <footer id="footer">
         <p>Copyright &copy; 2023. All rights are reserved</p>

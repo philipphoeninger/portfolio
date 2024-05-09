@@ -78,16 +78,18 @@ export const style = css`
 
   #contact {
     margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 
-    a {
-      display: block;
-      color: var(--clr-secondary, black);
-      text-decoration: none;
+    ph-contact {
+      margin-top: 1rem;
+      padding-inline: 1em;
+      max-width: 1000px;
+      width: 100%;
     }
-
-    i {
-      font-size: 25px;
-    }
+  }
 
     hr {
       margin-top: 2rem;

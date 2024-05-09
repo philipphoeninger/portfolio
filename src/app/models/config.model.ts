@@ -5,6 +5,11 @@ import { WorkModel } from "./work.model";
 
 @jsonObject
 export class ConfigModel {
+  @jsonMember({ constructor: Object })
+  personalInfo: {
+    name: string;
+    mail: string;
+  };
   @jsonMember({ constructor: Boolean })
   showScrollUp: boolean = true;
   @jsonMember({ constructor: Object })
