@@ -9,7 +9,6 @@ export const style = css`
 
   #button-group {
     display: flex;
-    margin: 1rem auto 0 0;
 
     #action-button {
       padding: 0.5rem 0.75rem;

@@ -56,12 +56,10 @@ export class PhContact extends LitElement {
           </li>
         </ul>
       </div>
-      <!-- <hr /> -->
       <div id="email-section">
         <a href="mailto:philipphoeninger@web.de">philipphoeninger@web.de</a>
         <i class="fa-solid fa-copy"></i>
       </div>
-      <!-- <hr /> -->
 
       <form action="URL" method="post" enctype="multipart/form-data">
         <input

@@ -18,17 +18,6 @@ export const style = css`
     align-items: center;
   }
 
-  #sub-heading {
-    margin: 0 auto 0 0;
-    color: var(--clr-accent, black);
-    font-style: italic;
-  }
-
-  h2 {
-    margin: 0 auto 0 0;
-    text-indent: 2rem;
-  }
-
   a {
     /* display: block; */
     color: var(--clr-secondary, black);
@@ -39,20 +28,6 @@ export const style = css`
     font-size: 25px;
     cursor: pointer;
   }
-
-  hr {
-    margin-top: 1rem;
-    width: 100%;
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid var(--clr-secondary, #ccc);
-    padding: 0;
-  }
-
-  /* .social {
-    margin: 2rem 0;
-  } */
 
   #social-media {
     margin-top: 1rem;
@@ -146,13 +121,12 @@ export const style = css`
       font-size: 1rem;
       width: 100%;
       padding: 8px;
-      margin-bottom: 0.5rem;
       border-radius: 7px;
       background-color: var(--clr-lighter, white);
     }
 
     ph-button {
-      margin: 0 0 0 auto;
+      margin: 1rem 0 0 auto;
     }
     /* color: #32b73f; */
   }
