@@ -6,16 +6,22 @@ import { PhSelectInfo } from "./app/components/ph-select-info/ph-select-info.com
 import { PhSelectLocale } from "./app/components/ph-select-locale/ph-select-locale.component";
 import { PhTooltip } from "./app/components/ph-tooltip/ph-tooltip.component";
 import { PhShowcase } from "./app/components/ph-showcase/ph-showcase.component";
+import { PhContact } from "./app/components/ph-contact/ph-contact.component";
+import { PhButton } from "./app/components/ph-button/ph-button.component";
+import { PhScroller } from "./app/components/ph-scroller/ph-scroller.component";
 
 export const components = [
-  Page,
   PhShowcase,
+  PhButton,
+  PhScroller,
   PhCard,
   PhDropdown,
   PhMenu,
   PhSelectInfo,
   PhSelectLocale,
   PhTooltip,
+  PhContact,
+  Page,
 ];
 
 let colorMode = localStorage.getItem("ph-colorMode");

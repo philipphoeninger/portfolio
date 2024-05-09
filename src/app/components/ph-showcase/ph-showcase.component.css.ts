@@ -84,7 +84,7 @@ export const style = css`
 
       img {
         border-radius: 0.5rem;
-        filter: grayscale(50%);
+        filter: grayscale(60%);
         width: 100%;
         height: 300px;
         object-fit: cover;

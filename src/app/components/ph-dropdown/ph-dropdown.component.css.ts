@@ -30,7 +30,6 @@ export const style = css`
   }
 
   #icon {
-    background: red;
     height: 100%;
     width: 4em;
     position: relative;
