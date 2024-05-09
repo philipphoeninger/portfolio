@@ -11,11 +11,9 @@ export const style = css`
     list-style: none;
   }
 
-  #showcase {
+  :host {
     display: flex;
     flex-direction: column;
-    height: 95vh;
-    max-width: 1400px;
     align-items: left;
     justify-content: center;
     text-align: left;
@@ -130,7 +128,7 @@ export const style = css`
   }
 
   @media (min-width: 580px) {
-    #showcase {
+    :host {
       #button-group {
         margin: 1rem auto 0;
 
@@ -146,7 +144,7 @@ export const style = css`
   }
 
   @media (min-width: 769px) {
-    #showcase {
+    :host {
       align-content: center;
       align-items: center;
       justify-content: center;
@@ -159,7 +157,7 @@ export const style = css`
         "portrait text"
         "portrait icons"
         ". .";
-      grid-template-rows: 1fr 2fr 40px 2fr;
+      grid-template-rows: 1fr 2fr 40px 1fr;
 
       #text-container {
         grid-area: text;
@@ -205,7 +203,7 @@ export const style = css`
   }
 
   @media (min-width: 1250px) {
-    #showcase {
+    :host {
       #portrait {
         img {
           min-height: 400px;

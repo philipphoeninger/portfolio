@@ -195,14 +195,16 @@ export class Page extends LitElement {
       : nothing;
 
     let showcase = this.configData.showcase
-      ? html`<ph-showcase
-          heading="${msg(this.configData.showcase.heading, {
-            desc: "TODO",
-          })}"
-          description="${msg(this.configData.showcase.description, {
-            desc: "TODO",
-          })}"
-        ></ph-showcase>`
+      ? html` <section id="showcase">
+          <ph-showcase
+            heading="${msg(this.configData.showcase.heading, {
+              desc: "TODO",
+            })}"
+            description="${msg(this.configData.showcase.description, {
+              desc: "TODO",
+            })}"
+          ></ph-showcase>
+        </section>`
       : nothing;
 
     let skills = this.configData.skills
