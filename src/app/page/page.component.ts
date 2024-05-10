@@ -24,6 +24,9 @@ export class Page extends LitElement {
   @query("#work", true) _work: any;
   @query("#skills", true) _skills: any;
   @query("#contact", true) _contact: any;
+  @query("#main-container", true) _mainContainer: any;
+  @query("#impressum", true) _impressum: any;
+  @query("#dataPrivacy", true) _dataPrivacy: any;
 
   static properties = {
     skills: {
@@ -36,6 +39,10 @@ export class Page extends LitElement {
     },
     menuLinks: {
       type: Array<{ id: number; name: string; link: string }>,
+      attribute: false,
+    },
+    footerLinks: {
+      type: Array<{ id: number; caption: string }>,
       attribute: false,
     },
     skillAreas: {
@@ -68,6 +75,13 @@ export class Page extends LitElement {
         id: EnMenuOption.Contact,
         name: msg("Contact me"),
         highlighted: true,
+      },
+    ];
+    this.footerLinks = [
+      { id: 0, caption: "Terms" },
+      {
+        id: 1,
+        caption: "Privacy",
       },
     ];
     this.skillAreas = [
@@ -156,6 +170,27 @@ export class Page extends LitElement {
     });
   }
 
+  toggleInfoComponent(event: CustomEvent | null) {
+    this._impressum?.classList.add("removed");
+    this._dataPrivacy?.classList.add("removed");
+    if (!event) {
+      this._mainContainer?.classList.remove("removed");
+      this._menu?.classList.remove("removed");
+      return;
+    }
+    if (event.detail.id === 0) {
+      // show terms info
+      this._mainContainer?.classList.add("removed");
+      this._menu?.classList.add("removed");
+      this._impressum?.classList.remove("removed");
+    } else if (event.detail.id === 1) {
+      // show privacy info
+      this._mainContainer?.classList.add("removed");
+      this._menu?.classList.add("removed");
+      this._dataPrivacy?.classList.remove("removed");
+    }
+  }
+
   render() {
     async () => {
       try {
@@ -197,6 +232,7 @@ export class Page extends LitElement {
     let showcase = this.configData.showcase
       ? html` <section id="showcase">
           <ph-showcase
+            name="${this.configData.personalInfo.name}"
             heading="${msg(this.configData.showcase.heading, {
               desc: "TODO",
             })}"
@@ -256,22 +292,38 @@ export class Page extends LitElement {
         </section>`
       : nothing;
 
+    let footer = html`<ph-footer
+      items="${JSON.stringify(this.footerLinks)}"
+      @onSelect="${(e: CustomEvent) => this.toggleInfoComponent(e)}"
+    ></ph-footer>`;
+
+    let impressum = html`<ph-info-page
+      id="impressum"
+      class="removed"
+      impressum="${true}"
+      @onBack="${(e: CustomEvent) => this.toggleInfoComponent(null)}"
+    ></ph-info-page>`;
+
+    let dataPrivacy = html`<ph-info-page
+      id="dataPrivacy"
+      class="removed"
+      @onBack="${(e: CustomEvent) => this.toggleInfoComponent(null)}"
+    ></ph-info-page>`;
+
     return html`
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
       />
-      ${menu}
+      ${menu} ${scrollUp} ${spinner}
       <main id="main-container">
-        ${scrollUp} ${spinner} ${showcase}
+        ${showcase}
         <section id="scroller" class="container-section">
           <ph-scroller></ph-scroller>
         </section>
         ${contact}
       </main>
-      <footer id="footer">
-        <p>Copyright &copy; 2023. All rights are reserved</p>
-      </footer>
+      ${impressum} ${dataPrivacy} ${footer}
     `;
   }
 }

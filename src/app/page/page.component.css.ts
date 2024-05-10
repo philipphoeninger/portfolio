@@ -7,10 +7,6 @@ export const style = css`
     margin: 0;
   }
 
-  ul {
-    list-style: none;
-  }
-
   :host {
     /* color: var(--clr-secondary, white); */
     background-color: var(--clr-primary, white);
@@ -22,6 +18,20 @@ export const style = css`
 
     /* justify-content: space-between; */
     /* background-color: var(--ph-color-bg); */
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    color: var(--clr-primary, white);
+    text-decoration: none;
+  }
+
+  i {
+    font-size: 25px;
+    color: var(--clr-secondary, black);
   }
 
   ph-menu.menu--hidden {
@@ -37,23 +47,18 @@ export const style = css`
     align-items: center;
     width: 100%;
     max-width: 1400px;
+  }
 
-    i {
-      font-size: 25px;
-      color: var(--clr-secondary, black);
-    }
+  #scroll-up {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    transition: transform 0.2s;
+    z-index: 999;
+  }
 
-    #scroll-up {
-      position: fixed;
-      bottom: 3rem;
-      right: 3rem;
-      transition: transform 0.2s;
-      z-index: 999;
-    }
-
-    .scroll--hidden {
-      transform: translateY(calc(3rem + 28px));
-    }
+  .scroll--hidden {
+    transform: translateY(calc(3rem + 28px));
   }
 
   .heading {
@@ -89,6 +94,11 @@ export const style = css`
   [hidden] {
     visibility: hidden;
   }
+
+  .removed {
+    display: none !important;
+  }
+
   #spinner {
     position: absolute;
     top: 50%;
@@ -129,22 +139,6 @@ export const style = css`
     ph-showcase {
       height: 100%;
       min-height: calc(100svh - var(--menu-height) - var(--scroller-height));
-    }
-  }
-
-  #footer {
-    text-align: center;
-    padding: 2rem;
-    font-weight: bold;
-    font-size: 1.25rem;
-    background-color: var(--clr-secondary, black);
-    color: var(--clr-lighter, white);
-    width: 100%;
-  }
-
-  @media (min-width: 580px) {
-    #footer {
-      padding: 4rem;
     }
   }
 
