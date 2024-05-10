@@ -42,12 +42,16 @@ export const style = css`
     line-height: 1.7;
   }
 
+  #text-container {
+    margin-top: 0.5rem;
+  }
+
   ph-button {
-    margin: 1rem auto 0 0;
+    margin: 0.5rem auto 0 0;
   }
 
   #portrait {
-    margin-top: 3rem;
+    margin-top: 2rem;
     width: 100%;
 
     img {
@@ -95,16 +99,22 @@ export const style = css`
   }
 
   @media (min-width: 580px) {
-    :host {
-      #button-group {
-        margin: 1rem auto 0;
+    #text-container {
+      margin-top: 0;
+    }
 
-        #social-media {
-          ul {
-            li {
-              margin: 0.5rem;
-            }
-          }
+    ph-button {
+      margin-top: 1rem;
+    }
+
+    #portrait {
+      margin-top: 3rem;
+    }
+
+    #social-media {
+      ul {
+        li {
+          margin: 0.5rem;
         }
       }
     }
@@ -125,56 +135,50 @@ export const style = css`
         "portrait icons"
         ". .";
       grid-template-rows: 1fr 2fr 40px 1fr;
+    }
 
-      #text-container {
-        grid-area: text;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
+    #text-container {
+      grid-area: text;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+
+    #portrait {
+      grid-area: portrait;
+      margin-top: 0;
+
+      img {
+        height: 20em;
+
+        width: 100%;
+        height: auto;
+        min-height: 356px;
+        max-height: 400px;
+        object-fit: cover;
+        object-position: center top;
       }
+    }
 
-      #button-group {
-        margin: 1rem auto 0 0;
-      }
+    #social-media {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      grid-area: icons;
 
-      #portrait {
-        grid-area: portrait;
-        margin-top: 0;
-
-        img {
-          height: 20em;
-
-          width: 100%;
-          height: auto;
-          min-height: 356px;
-          max-height: 400px;
-          object-fit: cover;
-          object-position: center top;
-        }
-      }
-
-      #social-media {
-        margin-top: 0;
-        margin-bottom: 1rem;
-        grid-area: icons;
-
-        ul {
-          justify-content: left;
-          padding-left: 0;
-          li {
-            margin-right: 3rem;
-          }
+      ul {
+        justify-content: left;
+        padding-left: 0;
+        li {
+          margin-right: 3rem;
         }
       }
     }
   }
 
   @media (min-width: 1250px) {
-    :host {
-      #portrait {
-        img {
-          min-height: 400px;
-        }
+    #portrait {
+      img {
+        min-height: 400px;
       }
     }
   }

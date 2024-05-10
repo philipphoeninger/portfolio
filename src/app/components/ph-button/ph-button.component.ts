@@ -21,11 +21,10 @@ export class PhButton extends LitElement {
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
       />
-      <div id="button-group">
-        <div id="action-button">${this.caption}</div>
-        <div id="icon-container">
-          <i class="${this.icon}"></i>
-        </div>
+
+      <div id="action-button">${this.caption}</div>
+      <div id="icon-container">
+        <i class="${this.icon}"></i>
       </div>
     `;
   }
