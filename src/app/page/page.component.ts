@@ -177,6 +177,7 @@ export class Page extends LitElement {
   toggleInfoComponent(event: CustomEvent | null) {
     this._impressum?.classList.add("removed");
     this._dataPrivacy?.classList.add("removed");
+    window.scrollTo({ top: 0, behavior: "smooth" });
     if (!event) {
       this._mainContainer?.classList.remove("removed");
       this._menu?.classList.remove("removed");
@@ -256,6 +257,12 @@ export class Page extends LitElement {
               desc: "TODO",
             })}"
             .imgUrls="${images}"
+            @onBtnClick="${(_: any) =>
+              this.scrollToSection(
+                new CustomEvent("scrollToContact", {
+                  detail: { id: EnMenuOption.Contact },
+                })
+              )}"
           ></ph-showcase>
         </section>`
       : nothing;
@@ -319,6 +326,7 @@ export class Page extends LitElement {
       class="removed"
       impressum="${true}"
       @onBack="${(e: CustomEvent) => this.toggleInfoComponent(null)}"
+      @onPrivacy="${(e: CustomEvent) => this.toggleInfoComponent(e)}"
     ></ph-info-page>`;
 
     let dataPrivacy = html`<ph-info-page

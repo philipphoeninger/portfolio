@@ -32,6 +32,7 @@ export const style = css`
 
   ph-button {
     margin-bottom: 3rem;
+    width: fit-content;
   }
 
   @media (min-width: 580px) {
