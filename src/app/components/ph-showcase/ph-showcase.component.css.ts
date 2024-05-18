@@ -48,6 +48,7 @@ export const style = css`
 
   ph-button {
     margin: 0.5rem auto 0 0;
+    width: fit-content;
   }
 
   #portrait {
@@ -84,7 +85,21 @@ export const style = css`
       /* overflow: hidden; */
 
       li {
-        cursor: pointer;
+        /* cursor: pointer; */
+
+        object {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 25px;
+          pointer-events: none;
+          filter: grayscale(40%);
+        }
+
+        #sql-icon {
+          margin-right: -10px;
+          height: 27px;
+        }
       }
 
       li:hover {
@@ -94,6 +109,18 @@ export const style = css`
       i {
         font-size: 25px;
         color: var(--clr-secondary, black);
+      }
+    }
+  }
+
+  @media (min-width: 350px) {
+    #social-media ul li {
+      object {
+        height: 30px;
+      }
+
+      #sql-icon {
+        height: 32px;
       }
     }
   }
@@ -113,8 +140,18 @@ export const style = css`
 
     #social-media {
       ul {
+        justify-content: space-around;
+
         li {
           margin: 0.5rem;
+
+          object {
+            height: 35px;
+          }
+
+          #sql-icon {
+            height: 37px;
+          }
         }
       }
     }
@@ -141,7 +178,7 @@ export const style = css`
       grid-area: text;
       display: flex;
       flex-direction: column;
-      margin-bottom: 1rem;
+      margin-bottom: 3rem;
     }
 
     #portrait {
@@ -162,16 +199,22 @@ export const style = css`
 
     #social-media {
       margin-top: 0;
-      margin-bottom: 1rem;
       grid-area: icons;
 
       ul {
         justify-content: left;
         padding-left: 0;
+
         li {
-          margin-right: 3rem;
+          margin-right: 2.25rem;
         }
       }
+    }
+  }
+
+  @media (min-width: 890px) {
+    #social-media ul li {
+      margin-right: 3.25em;
     }
   }
 

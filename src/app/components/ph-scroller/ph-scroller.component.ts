@@ -2,6 +2,9 @@ import { localized } from "@lit/localize";
 import { html, LitElement } from "lit";
 import { customElement, property, queryAll } from "lit/decorators.js";
 import { style } from "./ph-scroller.component.css";
+import ceiton from "@assets/img/ceiton_technologies_gmbh.png";
+import systhemis from "@assets/img/systhemis_ag.png";
+import factura from "@assets/img/factura_ag_2.png";
 
 @customElement("ph-scroller")
 @localized()
@@ -45,25 +48,16 @@ export class PhScroller extends LitElement {
       >
         <ul class="tag-list scroller__inner">
           <li>
-            <img
-              src="./src/assets/img/ceiton_technologies_gmbh.png"
-              width="50px"
-              height="50px"
-            />
+            <img src="${ceiton.substring(4, ceiton.length)}" height="50px" />
           </li>
           <li>
             <img
-              src="./src/assets/img/systhemis_ag.png"
-              width="65px"
-              height="65px"
+              src="${systhemis.substring(4, systhemis.length)}"
+              height="55px"
             />
           </li>
           <li>
-            <img
-              src="./src/assets/img/factura_ag_2.png"
-              width="60px"
-              height="60px"
-            />
+            <img src="${factura.substring(4, factura.length)}" height="60px" />
           </li>
         </ul>
       </div>

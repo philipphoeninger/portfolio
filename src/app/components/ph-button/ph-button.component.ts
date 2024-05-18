@@ -15,16 +15,14 @@ export class PhButton extends LitElement {
 
   render() {
     return html`
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      />
-
       <div id="action-button">${this.caption}</div>
       <div id="icon-container">
-        <i class="${this.icon}"></i>
+        <object
+          data="${this.icon.substring(4, this.icon.length)}"
+          type="image/svg+xml"
+        >
+          Icon SVG-Icon
+        </object>
       </div>
     `;
   }

@@ -24,9 +24,9 @@ export const style = css`
     text-decoration: none;
   }
 
-  i {
-    font-size: 25px;
-    cursor: pointer;
+  object {
+    height: 25px;
+    pointer-events: none;
   }
 
   #social-media {
@@ -56,8 +56,8 @@ export const style = css`
         background-color: var(--clr-light, #d9d9d9);
       }
 
-      i {
-        font-size: 25px;
+      object {
+        height: 25px;
         color: var(--clr-secondary, black);
       }
     }
@@ -77,7 +77,7 @@ export const style = css`
     max-width: 800px;
     background-color: var(--clr-lighter, white);
 
-    i {
+    object {
       display: none;
     }
   }
@@ -104,7 +104,6 @@ export const style = css`
     }
 
     input {
-      /* display: block; */
       border: 1px solid var(--clr-secondary, black);
       font-family: var(--ff-main, sans-serif);
       font-size: 1rem;
@@ -132,7 +131,7 @@ export const style = css`
   }
 
   @media (min-width: 350px) {
-    #email-section i {
+    #email-section object {
       display: inline;
     }
   }

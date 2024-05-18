@@ -7,9 +7,13 @@ import { data } from "../../assets/data.ts";
 import { msg, localized, LOCALE_STATUS_EVENT } from "@lit/localize";
 import { setLocaleFromUrl } from "../localization.ts";
 import { query } from "lit/decorators/query.js";
-import { EnSkillArea } from "@app/models/skill-area.enum.ts";
-import { ConfigModel } from "./../models/config.model.ts";
-import { EnMenuOption } from "./../models/menuOption.enum.ts";
+// import { EnSkillArea } from "@models/skill-area.enum.ts";
+import { ConfigModel } from "@models/config.model.ts";
+import { EnMenuOption } from "@models/menuOption.enum.ts";
+import portraitOne from "@assets/img/portrait.png";
+import portraitTwo from "@assets/img/portrait.jpg";
+import arrowUpLong from "@assets/icons/arrow-up-long-solid.svg";
+// import arrowUp from "@assets/icons/arrow-up-solid.svg";
 
 @customElement("app-page")
 @localized()
@@ -216,8 +220,13 @@ export class Page extends LitElement {
 
     let scrollUp = this.configData.showScrollUp
       ? html`<a id="scroll-up" class="scroll--hidden" href="#top"
-          ><i class="fa-solid fa-arrow-up"></i
-        ></a>`
+          ><object
+            data="${arrowUpLong.substring(4, arrowUpLong.length)}"
+            type="image/svg+xml"
+          >
+            Arrow up SVG-Icon
+          </object></a
+        >`
       : nothing;
 
     let spinner = this.configData.showSpinner
@@ -311,10 +320,6 @@ export class Page extends LitElement {
     ></ph-info-page>`;
 
     return html`
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      />
       ${menu} ${scrollUp} ${spinner}
       <main id="main-container">
         ${showcase}

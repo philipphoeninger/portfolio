@@ -29,9 +29,14 @@ export const style = css`
     text-decoration: none;
   }
 
-  i {
-    font-size: 25px;
-    color: var(--clr-secondary, black);
+  object {
+    height: 25px;
+    /* fill: var(--clr-secondary, black); */
+    pointer-events: none;
+  }
+
+  svg {
+    cursor: pointer;
   }
 
   ph-menu.menu--hidden {
@@ -58,7 +63,7 @@ export const style = css`
   }
 
   .scroll--hidden {
-    transform: translateY(calc(3rem + 28px));
+    transform: translateY(calc(3rem + 32px));
   }
 
   .heading {

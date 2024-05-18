@@ -3,6 +3,8 @@ import { customElement, property } from "lit/decorators.js";
 import { style } from "./ph-card.component.css.ts";
 import { TagModel } from "@app/models/tag.model.ts";
 import { msg, localized } from "@lit/localize";
+import githubIcon from "@assets/icons/github.svg";
+import linkIcon from "@assets/icons/arrow-up-right-from-square-solid.svg";
 
 @customElement("ph-card")
 @localized()
@@ -21,11 +23,6 @@ export class PhCard extends LitElement {
 
   render() {
     return html`
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      />
-
       <article class="card-container">
         <picture class="card__img order-end">
           <source
@@ -53,9 +50,14 @@ export class PhCard extends LitElement {
                 title="${msg("Link to Project Code", { desc: "TODO" })}"
                 >Code</a
               >
-              <a href="${this.sourceUrl}"
-                ><i class="fa-brands fa-github"></i
-              ></a>
+              <a href="${this.sourceUrl}">
+                <object
+                  data="${githubIcon.substring(4, githubIcon.length)}"
+                  type="image/svg+xml"
+                >
+                  Github SVG-Icon
+                </object></a
+              >
             </div>
             <div>
               <a
@@ -64,8 +66,13 @@ export class PhCard extends LitElement {
                 >Live</a
               >
               <a href="${this.liveUrl}"
-                ><i class="fa-solid fa-up-right-from-square"></i
-              ></a>
+                ><object
+                  data="${linkIcon.substring(4, linkIcon.length)}"
+                  type="image/svg+xml"
+                >
+                  Link Square SVG-Icon
+                </object></a
+              >
             </div>
           </div>
         </div>

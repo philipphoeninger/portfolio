@@ -28,7 +28,7 @@ export const style = css`
 
   #icon-container {
     border: 1px solid rgba(47, 49, 48, 0.25);
-    margin-left: -8px;
+    margin-left: -6px;
     border-radius: 0 0.35rem 0.35rem 0;
     padding-left: 0.75rem;
     padding-right: 0.5rem;
@@ -38,8 +38,9 @@ export const style = css`
     justify-content: center;
   }
 
-  #icon-container > i {
-    font-size: 12px;
+  #icon-container > object {
+    height: 12px;
+    pointer-events: none;
     /* color: var(--clr-accent, blue); */
   }
 `;

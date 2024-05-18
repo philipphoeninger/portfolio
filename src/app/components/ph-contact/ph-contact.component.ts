@@ -3,6 +3,14 @@ import { customElement, property } from "lit/decorators.js";
 import { localized, msg } from "@lit/localize";
 import { style } from "./ph-contact.component.css.ts";
 import { EnSocial } from "src/app/models/social.enum.ts";
+import checkIconGreen from "@assets/icons/check-solid-green.svg";
+import xIcon from "@assets/icons/xmark-solid.svg";
+import checkIcon from "@assets/icons/check-solid.svg";
+import linkedInIcon from "@assets/icons/linkedin.svg";
+import twitterIcon from "@assets/icons/twitter.svg";
+import devToIcon from "@assets/icons/devto.svg";
+import githubIcon from "@assets/icons/github.svg";
+import hourglassIcon from "@assets/icons/hourglass-half-solid.svg";
 
 @customElement("ph-contact")
 @localized()
@@ -21,45 +29,58 @@ export class PhContact extends LitElement {
   }[] = [];
 
   render() {
-    return html` <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      />
+    return html`
       <div id="social-media">
         <ul>
           <li>
-            <a href="index.html">
-              <i class="fa-solid fa-envelope"></i>
+            <a
+              href="https://www.linkedin.com/in/philipp-hoeninger/"
+              target="_blank"
+            >
+              <object
+                data="${linkedInIcon.substring(4, linkedInIcon.length)}"
+                type="image/svg+xml"
+              >
+                LinkedIn SVG-Icon
+              </object>
             </a>
           </li>
           <li>
-            <a href="index.html">
-              <i class="fa-brands fa-twitter"></i>
+            <a href="https://twitter.com/Philipp4160621" target="_blank">
+              <object
+                data="${twitterIcon.substring(4, twitterIcon.length)}"
+                type="image/svg+xml"
+              >
+                Twitter SVG-Icon
+              </object>
             </a>
           </li>
           <li>
-            <a href="index.html">
-              <i class="fa-brands fa-linkedin"></i>
+            <a href="https://dev.to/phoeni" target="_blank">
+              <object
+                data="${devToIcon.substring(4, devToIcon.length)}"
+                type="image/svg+xml"
+              >
+                Dev.to SVG-Icon
+              </object>
             </a>
           </li>
           <li>
-            <a href="index.html">
-              <i class="fa-brands fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a href="index.html">
-              <i class="fa-solid fa-download"></i>
+            <a href="https://github.com/p-hoeni" target="_blank">
+              <object
+                data="${githubIcon.substring(4, githubIcon.length)}"
+                type="image/svg+xml"
+              >
+                Github SVG-Icon
+              </object>
             </a>
           </li>
         </ul>
       </div>
-      <div id="email-section">
-        <a href="mailto:philipphoeninger@web.de">philipphoeninger@web.de</a>
-        <i class="fa-solid fa-copy"></i>
-      </div>
+      <!-- <div id="email-section">
+        <a id="emlink">
+        <i class="fa-solid fa-copy" @click=${() => this.copyToClipboard()}></i>
+      </div> -->
 
       <form action="URL" method="post" enctype="multipart/form-data">
         <input

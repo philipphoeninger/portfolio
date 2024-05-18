@@ -50,6 +50,10 @@ export const style = css`
     width: 100%;
   }
 
+  object {
+    pointer-events: none;
+  }
+
   /* utilities */
   .margin-right {
     margin-right: 0.75rem;

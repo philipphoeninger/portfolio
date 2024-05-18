@@ -2,6 +2,7 @@ import { localized } from "@lit/localize";
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { style } from "./ph-info-page.component.css";
+import arrowLeft from "@assets/icons/arrow-left-solid.svg";
 
 @customElement("ph-info-page")
 @localized()
@@ -16,7 +17,7 @@ export class PhInfoPage extends LitElement {
     return this.impressum
       ? html` <ph-button
             caption="Back"
-            icon="fa-solid fa-arrow-left"
+            icon="${arrowLeft}"
             @click=${() =>
               this.dispatchEvent(
                 new CustomEvent("onBack", { bubbles: true, composed: true })
@@ -51,7 +52,7 @@ export class PhInfoPage extends LitElement {
           </article>`
       : html`<ph-button
             caption="Back"
-            icon="fa-solid fa-arrow-left"
+            icon="${arrowLeft}"
             @click=${() =>
               this.dispatchEvent(
                 new CustomEvent("onBack", { bubbles: true, composed: true })
