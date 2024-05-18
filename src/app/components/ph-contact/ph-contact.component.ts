@@ -1,5 +1,5 @@
 import { html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, query } from "lit/decorators.js";
 import { localized, msg } from "@lit/localize";
 import { style } from "./ph-contact.component.css.ts";
 import { EnSocial } from "src/app/models/social.enum.ts";
@@ -27,6 +27,110 @@ export class PhContact extends LitElement {
     link: string;
     caption?: string;
   }[] = [];
+
+  @property({ type: Boolean }) submitSuccess: boolean = false;
+  @property({ type: String }) resultMsg_1: string = "";
+  @property({ type: String }) resultMsg_2: string = "";
+  @property({ type: String }) resultMsg_3: string = "";
+
+  @query("#contact-form", true) _contactForm: any;
+  @query("#loading", true) _loading: any;
+  @query("#result", true) _result: any;
+  @query("#result--icon", true) _resultIcon: any;
+  // @query("#emlink", true) _emlink: any;
+  // @query("#emlink2", true) _emlink2: any;
+
+  // copyToClipboard() {
+  //   let copyText = "";
+  //   try {
+  //     let successful = navigator.clipboard.writeText(copyText);
+  //   } catch (err) {
+  //     alert("Copy failed. Please copy manually.");
+  //   }
+  // }
+
+  // protected firstUpdated(): void {
+  //   this._emlink.href = `mailto:`;
+  //   this._emlink2.href = `mailto:`;
+  // }
+
+  configureResultMsg(
+    success: boolean,
+    msg1: string,
+    msg2: string,
+    msg3: string
+  ) {
+    this.resultMsg_1 = msg1;
+    this.resultMsg_2 = msg2;
+    this.resultMsg_3 = msg3;
+    this.submitSuccess = success;
+
+    this._loading.style.display = "none";
+    this._result.style.display = "block";
+  }
+
+  checkFormValidity(): boolean {
+    if (!this._contactForm.checkValidity()) {
+      let tmpSubmit = document.createElement("button");
+      this._contactForm.appendChild(tmpSubmit);
+      tmpSubmit.click();
+      this._contactForm.removeChild(tmpSubmit);
+      return false;
+    }
+    return true;
+  }
+
+  submitForm(event: any) {
+    event.preventDefault();
+
+    if (!this.checkFormValidity()) return;
+
+    this._loading.style.display = "block";
+    const formData = new FormData(this._contactForm);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    })
+      .then(async (response) => {
+        if (response.status !== 200) {
+          this.configureResultMsg(
+            true,
+            "Message sent successfully!",
+            "Thank you for your interest.",
+            "I will get back to you as soon as possible."
+          );
+        } else {
+          this.configureResultMsg(
+            false,
+            "Could not send the message!",
+            "I'm sorry for the inconvenience.",
+            "Please contact me via one of the other channels."
+          );
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        this.configureResultMsg(
+          false,
+          "Could not send the message!",
+          "I'm sorry for the inconvenience.",
+          "Please contact me via one of the other channels."
+        );
+      })
+      .then(() => {
+        this._contactForm.reset();
+        setTimeout(() => {
+          this._result.style.display = "none";
+        }, 5000);
+      });
+  }
 
   render() {
     return html`
@@ -82,7 +186,8 @@ export class PhContact extends LitElement {
         <i class="fa-solid fa-copy" @click=${() => this.copyToClipboard()}></i>
       </div> -->
 
-      <form action="URL" method="post" enctype="multipart/form-data">
+      <form method="post" id="contact-form" enctype="multipart/form-data">
+        <input type="hidden" name="access_key" />
         <input
           type="text"
           name="name"
@@ -101,7 +206,7 @@ export class PhContact extends LitElement {
           maxlength="100"
           value=""
           required
-          placeholder="${msg("EMail", { desc: "TODO" })}"
+          placeholder="${msg("E-Mail", { desc: "TODO" })}"
         /><label for="email">Textfeld</label>
         <!--cols und rows besser in CSS setzen. Textarea hat kein value-Attribut-->
         <textarea
@@ -113,13 +218,44 @@ export class PhContact extends LitElement {
           placeholder="${msg("Your message...", {
             desc: "TODO",
           })}"
+          required
+          minlength="5"
         ></textarea>
-        <ph-button
-          caption="${msg("Send", { desc: "TODO" })}"
-          icon="fa-regular fa-paper-plane"
-        ></ph-button
-        ><!-- type="submit" -->
-      </form>`;
+        <!-- hCaptcha Spam Protection -->
+        <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
+        <div id="form-footer">
+          <ph-button
+            id="phButton"
+            @click=${(event: any) => this.submitForm(event)}
+            caption="${msg("Send", { desc: "TODO" })}"
+            icon="${checkIcon}"
+          ></ph-button>
+          <div id="loading">
+            <object
+              data="${hourglassIcon.substring(4, hourglassIcon.length)}"
+              type="image/svg+xml"
+            >
+              Hourglass SVG Icon
+            </object>
+            Sending... please wait...
+          </div>
+          <div id="result">
+            <object
+              id="result--icon"
+              data="${this.submitSuccess
+                ? checkIconGreen.substring(4, checkIconGreen.length)
+                : xIcon.substring(4, xIcon.length)}"
+              type="image/svg+xml"
+            >
+              ${this.submitSuccess ? "Check" : "Cross"} SVG-Icon
+            </object>
+            <span class="bold">${this.resultMsg_1}</span><br />${this
+              .resultMsg_2}<br />${this.resultMsg_3}
+          </div>
+        </div>
+      </form>
+      <script src="https://web3forms.com/client/script.js" async defer></script>
+    `;
   }
 }
 

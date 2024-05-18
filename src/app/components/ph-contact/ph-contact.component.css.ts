@@ -119,20 +119,61 @@ export const style = css`
       font-family: var(--ff-main, sans-serif);
       font-size: 1rem;
       width: 100%;
+      resize: vertical;
       padding: 8px;
       border-radius: 7px;
       background-color: var(--clr-lighter, white);
     }
 
-    ph-button {
-      margin: 1rem 0 0 auto;
+    #form-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1rem;
+      width: 100%;
+
+      object {
+        height: 1.125rem;
+      }
+
+      ph-button {
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      #loading {
+        font-size: 0.85rem;
+        display: none;
+      }
+
+      #result {
+        font-size: 0.85rem;
+        display: none;
+
+        .bold {
+          font-weight: bold;
+        }
+      }
     }
-    /* color: #32b73f; */
   }
 
   @media (min-width: 350px) {
     #email-section object {
       display: inline;
+    }
+  }
+
+  @media (min-width: 580px) {
+    form {
+      input {
+        padding-inline: 16px;
+      }
+
+      textarea {
+        padding-inline: 16px;
+      }
     }
   }
 `;
