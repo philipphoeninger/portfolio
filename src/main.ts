@@ -9,18 +9,22 @@ import { PhShowcase } from "./app/components/ph-showcase/ph-showcase.component";
 import { PhContact } from "./app/components/ph-contact/ph-contact.component";
 import { PhButton } from "./app/components/ph-button/ph-button.component";
 import { PhScroller } from "./app/components/ph-scroller/ph-scroller.component";
+import { PhInfoPage } from "./app/components/ph-info-page/ph-info-page.component";
+import { PhFooter } from "./app/components/ph-footer/ph-footer.component";
 
 export const components = [
-  PhShowcase,
   PhButton,
-  PhScroller,
-  PhCard,
-  PhDropdown,
+  // PhCard,
+  // PhDropdown,
   PhMenu,
-  PhSelectInfo,
-  PhSelectLocale,
-  PhTooltip,
+  PhShowcase,
+  PhScroller,
+  // PhSelectInfo,
+  // PhSelectLocale,
+  // PhTooltip,
   PhContact,
+  PhInfoPage,
+  PhFooter,
   Page,
 ];
 
