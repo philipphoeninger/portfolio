@@ -19,13 +19,15 @@ export class PhShowcase extends LitElement {
   }
 
   // @property({ type: Array }) options: { name: string; link: string }[] = [];
+  @property({ type: String }) name = "";
   @property({ type: String }) heading = "";
   @property({ type: String }) description = "";
+  @property({ type: Array }) imgUrls: string[] = [];
 
   render() {
     return html`
       <div id="text-container">
-        <p id="name">Max Mustermann</p>
+        <p id="name">${this.name}</p>
         <h1>${this.heading}</h1>
         <p id="text">${this.description}</p>
         <ph-button
@@ -38,19 +40,10 @@ export class PhShowcase extends LitElement {
         ></ph-button>
       </div>
       <picture id="portrait">
-        <source
-          media="(min-width: 1250px)"
-          srcset="./src/assets/img/portrait.jpg"
-        />
-        <source
-          media="(min-width: 769px)"
-          srcset="./src/assets/img/portrait.png"
-        />
-        <source
-          media="(min-width: 498px)"
-          srcset="./src/assets/img/portrait.jpg"
-        />
-        <img src="./src/assets/img/portrait.png" alt="Portrait Image" />
+        <source media="(min-width: 1250px)" srcset="${this.imgUrls[3]}" />
+        <source media="(min-width: 769px)" srcset="${this.imgUrls[2]}" />
+        <source media="(min-width: 498px)" srcset="${this.imgUrls[1]}" />
+        <img src="${this.imgUrls[0]}" alt="Portrait Image" />
       </picture>
       <div id="social-media">
         <ul>

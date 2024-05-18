@@ -10,4 +10,7 @@ export class ShowcaseModel {
 
   @jsonMember({ constructor: String })
   description: string;
+
+  @jsonArrayMember(String)
+  imgNames: string[];
 }

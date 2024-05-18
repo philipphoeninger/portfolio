@@ -153,6 +153,7 @@ export const data: ConfigModel = {
         url: "mailto:",
       },
     ],
+    imgNames: ["portrait.png", "portrait.jpg", "portrait.png", "portrait.jpg"],
   },
   showContact: true,
 };

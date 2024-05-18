@@ -238,6 +238,13 @@ export class Page extends LitElement {
         ></mwc-circular-progress>`
       : nothing;
 
+    let images: string[] = [
+      portraitOne.substring(4, portraitOne.length),
+      portraitTwo.substring(4, portraitTwo.length),
+      portraitOne.substring(4, portraitOne.length),
+      portraitTwo.substring(4, portraitTwo.length),
+    ];
+
     let showcase = this.configData.showcase
       ? html` <section id="showcase">
           <ph-showcase
@@ -248,6 +255,7 @@ export class Page extends LitElement {
             description="${msg(this.configData.showcase.description, {
               desc: "TODO",
             })}"
+            .imgUrls="${images}"
           ></ph-showcase>
         </section>`
       : nothing;
