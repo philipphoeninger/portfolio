@@ -13,8 +13,8 @@ export const style = css`
 
   a {
     text-decoration: none;
-    cursor: pointer;
-    font-size: 0.825rem;
+    display: block;
+    font-size: 0.9125rem;
     color: var(--clr-primary, white);
   }
 
@@ -23,7 +23,12 @@ export const style = css`
     overflow: hidden;
 
     li {
-      margin-block: 0.5rem;
+      margin-block: 0.875rem;
+      cursor: pointer;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -39,7 +44,7 @@ export const style = css`
       text-align: center;
       font-weight: bold;
       font-size: 1.25rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       line-height: 1.5;
     }
 
@@ -49,6 +54,10 @@ export const style = css`
   }
 
   @media (min-width: 580px) {
+    a {
+      font-size: 1rem;
+    }
+
     #footer {
       padding: 3rem;
     }
@@ -58,7 +67,7 @@ export const style = css`
       justify-content: center;
 
       li {
-        margin-inline: 2rem;
+        margin-inline: 3rem;
       }
     }
   }
