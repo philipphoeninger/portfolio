@@ -141,40 +141,28 @@ export class PhContact extends LitElement {
               href="https://www.linkedin.com/in/philipp-hoeninger/"
               target="_blank"
             >
-              <object
-                data="${linkedInIcon.substring(4, linkedInIcon.length)}"
-                type="image/svg+xml"
-              >
+              <object data="${linkedInIcon}" type="image/svg+xml">
                 LinkedIn SVG-Icon
               </object>
             </a>
           </li>
           <li>
             <a href="https://twitter.com/Philipp4160621" target="_blank">
-              <object
-                data="${twitterIcon.substring(4, twitterIcon.length)}"
-                type="image/svg+xml"
-              >
+              <object data="${twitterIcon}" type="image/svg+xml">
                 Twitter SVG-Icon
               </object>
             </a>
           </li>
           <li>
             <a href="https://dev.to/phoeni" target="_blank">
-              <object
-                data="${devToIcon.substring(4, devToIcon.length)}"
-                type="image/svg+xml"
-              >
+              <object data="${devToIcon}" type="image/svg+xml">
                 Dev.to SVG-Icon
               </object>
             </a>
           </li>
           <li>
             <a href="https://github.com/p-hoeni" target="_blank">
-              <object
-                data="${githubIcon.substring(4, githubIcon.length)}"
-                type="image/svg+xml"
-              >
+              <object data="${githubIcon}" type="image/svg+xml">
                 Github SVG-Icon
               </object>
             </a>
@@ -231,10 +219,7 @@ export class PhContact extends LitElement {
             icon="${checkIcon}"
           ></ph-button>
           <div id="loading">
-            <object
-              data="${hourglassIcon.substring(4, hourglassIcon.length)}"
-              type="image/svg+xml"
-            >
+            <object data="${hourglassIcon}" type="image/svg+xml">
               Hourglass SVG Icon
             </object>
             Sending... please wait...
@@ -242,9 +227,7 @@ export class PhContact extends LitElement {
           <div id="result">
             <object
               id="result--icon"
-              data="${this.submitSuccess
-                ? checkIconGreen.substring(4, checkIconGreen.length)
-                : xIcon.substring(4, xIcon.length)}"
+              data="${this.submitSuccess ? checkIconGreen : xIcon}"
               type="image/svg+xml"
             >
               ${this.submitSuccess ? "Check" : "Cross"} SVG-Icon

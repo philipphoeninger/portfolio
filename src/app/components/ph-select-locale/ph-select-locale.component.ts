@@ -3,7 +3,7 @@ import { customElement, property } from "lit/decorators.js";
 import { style } from "./ph-select-locale.component.css.ts";
 import { getLocale, setLocaleFromUrl } from "../../localization.ts";
 import { localized } from "@lit/localize";
-import { allLocales } from "../../../assets/i18n/locale-codes.js";
+import { allLocales } from "@assets/i18n/locale-codes.js";
 
 const localeNames: {
   [L in (typeof allLocales)[number]]: string;

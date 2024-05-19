@@ -1,5 +1,5 @@
-import { WorkModel } from "./../models/work.model";
-import { SkillModel } from "./../models/skill.model";
+import { WorkModel } from "@models/work.model";
+// import { SkillModel } from "@models/skill.model";
 import { LitElement, html, nothing } from "lit";
 import { customElement } from "lit/decorators.js";
 import { style } from "./page.component.css.ts";
@@ -221,10 +221,7 @@ export class Page extends LitElement {
 
     let scrollUp = this.configData.showScrollUp
       ? html`<a id="scroll-up" class="scroll--hidden" href="#top"
-          ><object
-            data="${arrowUpLong.substring(4, arrowUpLong.length)}"
-            type="image/svg+xml"
-          >
+          ><object data="${arrowUpLong}" type="image/svg+xml">
             Arrow up SVG-Icon
           </object></a
         >`
@@ -239,12 +236,7 @@ export class Page extends LitElement {
         ></mwc-circular-progress>`
       : nothing;
 
-    let images: string[] = [
-      portraitOne.substring(4, portraitOne.length),
-      portraitTwo.substring(4, portraitTwo.length),
-      portraitOne.substring(4, portraitOne.length),
-      portraitTwo.substring(4, portraitTwo.length),
-    ];
+    let images: string[] = [portraitOne, portraitTwo, portraitOne, portraitTwo];
 
     let showcase = this.configData.showcase
       ? html` <section id="showcase">
@@ -271,8 +263,8 @@ export class Page extends LitElement {
       ? html`<section id="skills" class="container-section">
           <h2>${msg("Skills", { desc: "TODO" })}</h2>
           <ph-select-info
-            skills="${JSON.stringify(this.skills)}"
-            skillAreas="${JSON.stringify(this.skillAreas)}"
+            .skills="${config.skills}"
+            .skillAreas="${config.skillAreas}"
           ></ph-select-info>
         </section>`
       : nothing;

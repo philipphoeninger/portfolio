@@ -51,10 +51,7 @@ export class PhCard extends LitElement {
                 >Code</a
               >
               <a href="${this.sourceUrl}">
-                <object
-                  data="${githubIcon.substring(4, githubIcon.length)}"
-                  type="image/svg+xml"
-                >
+                <object data="${githubIcon}" type="image/svg+xml">
                   Github SVG-Icon
                 </object></a
               >
@@ -66,10 +63,7 @@ export class PhCard extends LitElement {
                 >Live</a
               >
               <a href="${this.liveUrl}"
-                ><object
-                  data="${linkIcon.substring(4, linkIcon.length)}"
-                  type="image/svg+xml"
-                >
+                ><object data="${linkIcon}" type="image/svg+xml">
                   Link Square SVG-Icon
                 </object></a
               >

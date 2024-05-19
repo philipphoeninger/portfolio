@@ -1,5 +1,6 @@
-import { EnSkillArea } from "../app/models/skill-area.enum";
-import { ConfigModel } from "@app/models/config.model";
+import { EnMenuOption } from "@models/menuOption.enum";
+import { EnSkillArea } from "@models/skill-area.enum";
+import { ConfigModel } from "@models/config.model";
 
 export const data: ConfigModel = {
   personalInfo: {

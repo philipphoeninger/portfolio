@@ -14,7 +14,8 @@
     "@lit/localize-tools": "^0.7.0",
     "typedjson": "^1.8.0",
     "typescript": "^5.2.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "dependencies": {
     "@lit/localize": "^0.12.0",

@@ -48,16 +48,13 @@ export class PhScroller extends LitElement {
       >
         <ul class="tag-list scroller__inner">
           <li>
-            <img src="${ceiton.substring(4, ceiton.length)}" height="50px" />
+            <img src="${ceiton}" height="50px" />
           </li>
           <li>
-            <img
-              src="${systhemis.substring(4, systhemis.length)}"
-              height="55px"
-            />
+            <img src="${systhemis}" height="55px" />
           </li>
           <li>
-            <img src="${factura.substring(4, factura.length)}" height="60px" />
+            <img src="${factura}" height="60px" />
           </li>
         </ul>
       </div>

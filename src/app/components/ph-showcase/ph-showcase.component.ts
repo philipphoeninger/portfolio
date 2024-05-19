@@ -49,61 +49,38 @@ export class PhShowcase extends LitElement {
         <ul>
           <li>
             <!-- <a href="index.html"> -->
-            <object
-              data="${angular.substring(4, angular.length)}"
-              type="image/svg+xml"
-            >
+            <object data="${angular}" type="image/svg+xml">
               Angular SVG-Icon
             </object>
             <!-- </a> -->
           </li>
           <li>
             <!-- <a href="index.html"> -->
-            <object
-              data="${typescript.substring(4, typescript.length)}"
-              type="image/svg+xml"
-            >
+            <object data="${typescript}" type="image/svg+xml">
               TypeScript SVG-Icon
             </object>
             <!-- </a> -->
           </li>
           <li>
             <!-- <a href="index.html"> -->
-            <object
-              data="${sass.substring(4, sass.length)}"
-              type="image/svg+xml"
-            >
-              Sass SVG-Icon
-            </object>
+            <object data="${sass}" type="image/svg+xml">Sass SVG-Icon</object>
             <!-- </a> -->
           </li>
           <li>
             <!-- <a href="index.html"> -->
-            <object
-              data="${htmlSvg.substring(4, htmlSvg.length)}"
-              type="image/svg+xml"
-            >
+            <object data="${htmlSvg}" type="image/svg+xml">
               HTML SVG-Icon
             </object>
             <!-- </a> -->
           </li>
           <li>
             <!-- <a href="index.html"> -->
-            <object
-              data="${csharp.substring(4, csharp.length)}"
-              type="image/svg+xml"
-            >
-              C# SVG-Icon
-            </object>
+            <object data="${csharp}" type="image/svg+xml">C# SVG-Icon</object>
             <!-- </a> -->
           </li>
           <li>
             <!-- <a href="index.html"> -->
-            <object
-              id="sql-icon"
-              data="${sql.substring(4, sql.length)}"
-              type="image/svg+xml"
-            >
+            <object id="sql-icon" data="${sql}" type="image/svg+xml">
               SQL SVG-Icon
             </object>
             <!-- </a> -->

@@ -1,16 +1,16 @@
-import { Page } from "./app/page/page.component";
-import { PhCard } from "./app/components/ph-card/ph-card.component";
-import { PhDropdown } from "./app/components/ph-dropdown/ph-dropdown.component";
-import { PhMenu } from "./app/components/ph-menu/ph-menu.component";
-import { PhSelectInfo } from "./app/components/ph-select-info/ph-select-info.component";
-import { PhSelectLocale } from "./app/components/ph-select-locale/ph-select-locale.component";
-import { PhTooltip } from "./app/components/ph-tooltip/ph-tooltip.component";
-import { PhShowcase } from "./app/components/ph-showcase/ph-showcase.component";
-import { PhContact } from "./app/components/ph-contact/ph-contact.component";
-import { PhButton } from "./app/components/ph-button/ph-button.component";
-import { PhScroller } from "./app/components/ph-scroller/ph-scroller.component";
-import { PhInfoPage } from "./app/components/ph-info-page/ph-info-page.component";
-import { PhFooter } from "./app/components/ph-footer/ph-footer.component";
+import { Page } from "@app/page/page.component";
+import { PhCard } from "@app/components/ph-card/ph-card.component";
+import { PhDropdown } from "@app/components/ph-dropdown/ph-dropdown.component";
+import { PhMenu } from "@app/components/ph-menu/ph-menu.component";
+import { PhSelectInfo } from "@app/components/ph-select-info/ph-select-info.component";
+import { PhSelectLocale } from "@app/components/ph-select-locale/ph-select-locale.component";
+import { PhTooltip } from "@app/components/ph-tooltip/ph-tooltip.component";
+import { PhShowcase } from "@app/components/ph-showcase/ph-showcase.component";
+import { PhContact } from "@app/components/ph-contact/ph-contact.component";
+import { PhButton } from "@app/components/ph-button/ph-button.component";
+import { PhScroller } from "@app/components/ph-scroller/ph-scroller.component";
+import { PhInfoPage } from "@app/components/ph-info-page/ph-info-page.component";
+import { PhFooter } from "@app/components/ph-footer/ph-footer.component";
 
 export const components = [
   PhButton,

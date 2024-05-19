@@ -17,12 +17,7 @@ export class PhButton extends LitElement {
     return html`
       <div id="action-button">${this.caption}</div>
       <div id="icon-container">
-        <object
-          data="${this.icon.substring(4, this.icon.length)}"
-          type="image/svg+xml"
-        >
-          Icon SVG-Icon
-        </object>
+        <object data="${this.icon}" type="image/svg+xml">Icon SVG-Icon</object>
       </div>
     `;
   }

@@ -14,7 +14,7 @@ export class PhSelectInfo extends LitElement {
 
   render() {
     return html`
-      <ph-dropdown options="${JSON.stringify(this.skillAreas)}"></ph-dropdown>
+      <ph-dropdown .options="${this.skillAreas}"></ph-dropdown>
       <div class="select-info-container">
         <div class="select-info-header">
           <ul>
