@@ -1,4 +1,4 @@
-import { localized } from "@lit/localize";
+import { localized, msg } from "@lit/localize";
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { style } from "./ph-info-page.component.css";
@@ -16,7 +16,7 @@ export class PhInfoPage extends LitElement {
   render() {
     return this.impressum
       ? html` <ph-button
-            caption="Back"
+            caption="${msg("Back")}"
             icon="${arrowLeft}"
             @click=${() =>
               this.dispatchEvent(
@@ -51,7 +51,7 @@ export class PhInfoPage extends LitElement {
             </p>
           </article>`
       : html`<ph-button
-            caption="Back"
+            caption="${msg("Back")}"
             icon="${arrowLeft}"
             @click=${() =>
               this.dispatchEvent(
