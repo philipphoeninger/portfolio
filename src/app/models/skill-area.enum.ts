@@ -1,4 +1,5 @@
 export enum EnSkillArea {
-  frontend = 0,
-  backend = 1,
+  Frontend = 0,
+  Backend = 1,
+  Database = 2,
 }

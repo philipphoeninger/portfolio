@@ -261,11 +261,11 @@ export class Page extends LitElement {
 
     let skills = this.configData.skills
       ? html`<section id="skills" class="container-section">
-          <h2>${msg("Skills", { desc: "TODO" })}</h2>
-          <ph-select-info
-            .skills="${config.skills}"
-            .skillAreas="${config.skillAreas}"
-          ></ph-select-info>
+          <div class="heading">
+            <span class="heading-text">${msg("What I can do")}</span>
+            <h2>${msg("Skills")}</h2>
+          </div>
+          <ph-select-info .skills="${config.skills}"></ph-select-info>
         </section>`
       : nothing;
 
@@ -334,6 +334,11 @@ export class Page extends LitElement {
         <section id="scroller" class="container-section">
           <ph-scroller></ph-scroller>
         </section>
+        ${skills}
+        <div id="skills-text">
+          ${msg("Self-evaluation powered by")}
+          <a href="https://roadmap.sh/" target="_blank">Roadmap.sh</a>
+        </div>
         ${contact}
       </main>
       ${impressum} ${dataPrivacy} ${footer}
