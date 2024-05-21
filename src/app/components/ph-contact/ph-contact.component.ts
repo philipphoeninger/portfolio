@@ -20,7 +20,7 @@ export class PhContact extends LitElement {
   }
 
   @property({ type: String }) name: string = "";
-  @property({ type: String }) mail: string = "";
+  // @property({ type: String }) mail: string = "";
   @property({ type: String }) phone: string = "";
   @property({ type: Array }) socials: {
     social: EnSocial;

@@ -3,8 +3,8 @@ import { WorkModel } from "@models/work.model";
 import { LitElement, html, nothing } from "lit";
 import { customElement } from "lit/decorators.js";
 import { style } from "./page.component.css.ts";
-import { data } from "../../assets/data.ts";
-import { msg, localized, LOCALE_STATUS_EVENT } from "@lit/localize";
+import { data as config } from "@assets/data.ts";
+import { localized, LOCALE_STATUS_EVENT, msg } from "@lit/localize";
 import { setLocaleFromUrl } from "../localization.ts";
 import { query } from "lit/decorators/query.js";
 // import { EnSkillArea } from "@models/skill-area.enum.ts";
@@ -32,66 +32,9 @@ export class Page extends LitElement {
   @query("#impressum", true) _impressum: any;
   @query("#dataPrivacy", true) _dataPrivacy: any;
 
-  static properties = {
-    skills: {
-      type: Array<SkillModel>,
-      attribute: false,
-    },
-    work: {
-      type: Array<WorkModel>,
-      attribute: false,
-    },
-    menuLinks: {
-      type: Array<{ id: number; name: string; link: string }>,
-      attribute: false,
-    },
-    footerLinks: {
-      type: Array<{ id: number; caption: string }>,
-      attribute: false,
-    },
-    skillAreas: {
-      type: Array<{ id: number; caption: string }>,
-      attribute: false,
-    },
-    configData: {
-      type: ConfigModel,
-      attribute: false,
-    },
-  };
-
   constructor() {
     super();
     /** extract and process config data */
-    this.configData = data;
-    this.skills = data.skills || {};
-    this.work = data.work || {};
-    this.menuLinks = [
-      { id: EnMenuOption.Home, name: msg("Home") },
-      // {
-      //   id: EnMenuOption.Skills,
-      //   name: msg("Skills"),
-      // },
-      // {
-      //   id: EnMenuOption.About,
-      //   name: msg("About"),
-      // },
-      {
-        id: EnMenuOption.Contact,
-        name: msg("Contact me"),
-        highlighted: true,
-      },
-    ];
-    this.footerLinks = [
-      { id: 0, caption: "Terms" },
-      {
-        id: 1,
-        caption: "Privacy",
-      },
-    ];
-    this.skillAreas = [
-      { id: 0, caption: "Frontend" },
-      { id: 1, caption: "Backend" },
-    ];
 
     this.handleScrollEvents();
   }
@@ -210,17 +153,33 @@ export class Page extends LitElement {
       }
     };
 
+    let menuLinks = [
+      { id: EnMenuOption.Home, name: msg("Home") },
+      {
+        id: EnMenuOption.Skills,
+        name: msg("Skills"),
+      },
+      // {
+      //   id: EnMenuOption.About,
+      //   name: "About",
+      // },
+      {
+        id: EnMenuOption.Contact,
+        name: msg("Contact me"),
+        highlighted: true,
+      },
+    ];
     let menu =
-      this.configData.menu && this.configData.menu.showMenu
+      config.menu && config.menu.showMenu
         ? html`<ph-menu
-            logoCaption="${this.configData.menu.logoCaption}"
-            options="${JSON.stringify(this.menuLinks)}"
-            showLanguageSelector="${this.configData.menu.showLanguageSelector}"
+            logoCaption="${config.menu.logoCaption}"
+            .options="${menuLinks}"
+            .showLanguageSelector="${config.menu.showLanguageSelector}"
             @onSelect="${(e: CustomEvent) => this.scrollToSection(e)}"
           ></ph-menu>`
         : nothing;
 
-    let scrollUp = this.configData.showScrollUp
+    let scrollUp = config.showScrollUp
       ? html`<a id="scroll-up" class="scroll--hidden" href="#top"
           ><object data="${arrowUpLong}" type="image/svg+xml">
             Arrow up SVG-Icon
@@ -228,7 +187,7 @@ export class Page extends LitElement {
         >`
       : nothing;
 
-    let spinner = this.configData.showSpinner
+    let spinner = config.showSpinner
       ? html`<mwc-circular-progress
           id="spinner"
           indeterminate
@@ -239,8 +198,8 @@ export class Page extends LitElement {
 
     let images: string[] = [portraitOne, portraitTwo, portraitOne, portraitTwo];
 
-    let showcase = this.configData.showcase
-      ? html` <section id="showcase">
+    let showcase = config.showcase
+      ? html` <section id="showcase" class="container-section">
           <ph-showcase
             name="${config.personalInfo.name}"
             heading="${msg("Full-Stack Web Developer")}"
@@ -259,7 +218,7 @@ export class Page extends LitElement {
         </section>`
       : nothing;
 
-    let skills = this.configData.skills
+    let skills = config.skills
       ? html`<section id="skills" class="container-section">
           <div class="heading">
             <span class="heading-text">${msg("What I can do")}</span>
@@ -269,11 +228,11 @@ export class Page extends LitElement {
         </section>`
       : nothing;
 
-    let work = this.configData.work
+    let work = config.work
       ? html`<section id="work" class="container-section">
           <h2>${msg("Work")}</h2>
           <ul>
-            ${this.work.map(
+            ${config.work.map(
               (workEntry: WorkModel) =>
                 html`<ph-card
                   class="work-entry"
@@ -282,29 +241,27 @@ export class Page extends LitElement {
                   description="${workEntry.description}"
                   sourceUrl="${workEntry.sourceUrl}"
                   liveUrl="${workEntry.liveUrl}"
-                  tags="${JSON.stringify(workEntry.tags)}"
+                  .tags="${workEntry.tags}"
                 ></ph-card>`
             )}
           </ul>
         </section>`
       : nothing;
 
-    let about = this.configData.about
+    let about = config.showAbout
       ? html`<section id="about" class="container-section">
           <h2>${msg("About")}</h2>
         </section>`
       : nothing;
 
-    let contact = this.configData.showContact
+    let contact = config.contact.visible
       ? html` <section id="contact" class="container-section">
           <div class="heading">
             <span class="heading-text">${msg("Work with me!")}</span>
             <h2>${msg("Contact")}</h2>
           </div>
-          <ph-contact
-            name="${this.configData.personalInfo.name}"
-            mail="${this.configData.personalInfo.mail}"
-          ></ph-contact>
+          <ph-contact name="${config.personalInfo.name}"></ph-contact>
+          <!-- mail="${config.personalInfo.mail}" -->
         </section>`
       : nothing;
 
@@ -323,7 +280,7 @@ export class Page extends LitElement {
     let impressum = html`<ph-info-page
       id="impressum"
       class="removed"
-      impressum="${true}"
+      .impressum="${true}"
       @onBack="${(e: CustomEvent) => this.toggleInfoComponent(null)}"
       @onPrivacy="${(e: CustomEvent) => this.toggleInfoComponent(e)}"
     ></ph-info-page>`;

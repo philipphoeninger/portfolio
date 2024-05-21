@@ -7,4 +7,7 @@ export class LinkModel {
 
   @jsonMember({ constructor: String })
   caption: string;
+
+  @jsonMember({ constructor: String })
+  highlighted?: string;
 }

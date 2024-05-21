@@ -2,6 +2,7 @@ import { jsonArrayMember, jsonMember, jsonObject } from "typedjson";
 import { ShowcaseModel } from "./showcase.model";
 import { SkillModel } from "./skill.model";
 import { WorkModel } from "./work.model";
+import { LinkModel } from "./link.model";
 
 @jsonObject
 export class ConfigModel {
@@ -13,10 +14,11 @@ export class ConfigModel {
   @jsonMember({ constructor: Boolean })
   showScrollUp: boolean = true;
   @jsonMember({ constructor: Object })
-  menu?: {
+  menu: {
     showMenu: boolean;
     logoCaption: string;
     showLanguageSelector: boolean;
+    links: LinkModel[];
   };
   @jsonMember({ constructor: Boolean })
   showSpinner: boolean = true;
@@ -24,10 +26,28 @@ export class ConfigModel {
   showcase?: ShowcaseModel;
   // @jsonMember({ constructor: String })
   // contact?: string;
+  @jsonMember({ constructor: String })
+  skillsHeading: string;
+
   @jsonArrayMember(SkillModel)
   skills: SkillModel[];
+
+  @jsonArrayMember(LinkModel)
+  skillAreas: LinkModel[];
+  @jsonMember({ constructor: String })
+  workHeading: string;
   @jsonArrayMember(WorkModel)
   work: WorkModel[];
+  @jsonMember({ constructor: Object })
+  contact: {
+    visible: boolean;
+    heading: string;
+    subHeading: string;
+  };
   @jsonMember({ constructor: Boolean })
-  showContact: boolean = true;
+  showAbout: boolean = true;
+  @jsonMember({ constructor: String })
+  aboutHeading: string;
+  @jsonMember({ constructor: Object })
+  footer: { links: { id: number; caption: string }[] };
 }
