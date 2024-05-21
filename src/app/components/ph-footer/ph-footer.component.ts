@@ -1,4 +1,4 @@
-import { localized } from "@lit/localize";
+import { localized, msg } from "@lit/localize";
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { style } from "./ph-footer.component.css";
@@ -26,7 +26,7 @@ export class PhFooter extends LitElement {
 
   render() {
     return html` <footer id="footer">
-      <p>Copyright &copy; 2024. All rights are reserved</p>
+      <p>${msg("Copyright")} &copy; 2024. ${msg("All rights reserved")}</p>
       <div id="items">
         <ul>
           ${this.items.map((item) => {

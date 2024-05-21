@@ -98,16 +98,17 @@ export class Page extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
+    setLocaleFromUrl();
     // Update the locale to match the URL when the user moves backwards or forwards
     // through history.
-    window.addEventListener("popstate", () => {
-      setLocaleFromUrl();
-    });
+    // window.addEventListener("popstate", () => {
+    //   setLocaleFromUrl();
+    // });
 
-    window.addEventListener(
-      LOCALE_STATUS_EVENT,
-      this.setSpinnerVisibility.bind(this)
-    );
+    // window.addEventListener(
+    //   LOCALE_STATUS_EVENT,
+    //   this.setSpinnerVisibility.bind(this)
+    // );
   }
 
   // Display a spinner whenever a new locale is loading.
@@ -128,10 +129,10 @@ export class Page extends LitElement {
 
   disconnectedCallback(): void {
     super.disconnectedCallback();
-    window.removeEventListener("popstate", () => {
-      setLocaleFromUrl();
-    });
-    window.removeEventListener(LOCALE_STATUS_EVENT, this.setSpinnerVisibility);
+    // window.removeEventListener("popstate", () => {
+    //   setLocaleFromUrl();
+    // });
+    // window.removeEventListener(LOCALE_STATUS_EVENT, this.setSpinnerVisibility);
   }
 
   scrollToSection(event: CustomEvent) {
@@ -241,13 +242,12 @@ export class Page extends LitElement {
     let showcase = this.configData.showcase
       ? html` <section id="showcase">
           <ph-showcase
-            name="${this.configData.personalInfo.name}"
-            heading="${msg(this.configData.showcase.heading, {
-              desc: "TODO",
-            })}"
-            description="${msg(this.configData.showcase.description, {
-              desc: "TODO",
-            })}"
+            name="${config.personalInfo.name}"
+            heading="${msg("Full-Stack Web Developer")}"
+            btnCaption="${msg("Contact me")}"
+            description="${msg(
+              "Interested in all technical aspects of developing web software applications in and for companies. Currently employed at Ceiton technologies GmbH, Leipzig."
+            )}"
             .imgUrls="${images}"
             @onBtnClick="${(_: any) =>
               this.scrollToSection(
@@ -271,7 +271,7 @@ export class Page extends LitElement {
 
     let work = this.configData.work
       ? html`<section id="work" class="container-section">
-          <h2>${msg("Work", { desc: "TODO" })}</h2>
+          <h2>${msg("Work")}</h2>
           <ul>
             ${this.work.map(
               (workEntry: WorkModel) =>
@@ -291,15 +291,15 @@ export class Page extends LitElement {
 
     let about = this.configData.about
       ? html`<section id="about" class="container-section">
-          <h2>${msg("About", { desc: "TODO" })}</h2>
+          <h2>${msg("About")}</h2>
         </section>`
       : nothing;
 
     let contact = this.configData.showContact
       ? html` <section id="contact" class="container-section">
           <div class="heading">
-            <span class="heading-text">Work with me</span>
-            <h2>${msg("Contact", { desc: "TODO" })}</h2>
+            <span class="heading-text">${msg("Work with me!")}</span>
+            <h2>${msg("Contact")}</h2>
           </div>
           <ph-contact
             name="${this.configData.personalInfo.name}"
@@ -308,8 +308,15 @@ export class Page extends LitElement {
         </section>`
       : nothing;
 
+    let footerLinks = [
+      { id: 0, caption: msg("Legal Notice") },
+      {
+        id: 1,
+        caption: msg("Privacy Policy"),
+      },
+    ];
     let footer = html`<ph-footer
-      items="${JSON.stringify(this.footerLinks)}"
+      .items="${footerLinks}"
       @onSelect="${(e: CustomEvent) => this.toggleInfoComponent(e)}"
     ></ph-footer>`;
 

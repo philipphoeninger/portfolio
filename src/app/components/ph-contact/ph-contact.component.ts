@@ -54,15 +54,18 @@ export class PhContact extends LitElement {
   //   this._emlink2.href = `mailto:`;
   // }
 
-  configureResultMsg(
-    success: boolean,
-    msg1: string,
-    msg2: string,
-    msg3: string
-  ) {
-    this.resultMsg_1 = msg1;
-    this.resultMsg_2 = msg2;
-    this.resultMsg_3 = msg3;
+  configureResultMsg(success: boolean) {
+    if (success) {
+      this.resultMsg_1 = msg("Message sent successfully!");
+      this.resultMsg_2 = msg("Thank you for your interest.");
+      this.resultMsg_3 = msg("I will get back to you as soon as possible.");
+    } else {
+      this.resultMsg_1 = msg("Could not send the message!");
+      this.resultMsg_2 = msg("I'm sorry for the inconvenience.");
+      this.resultMsg_3 = msg(
+        "Please contact me via one of the other channels."
+      );
+    }
     this.submitSuccess = success;
 
     this._loading.style.display = "none";
@@ -99,30 +102,15 @@ export class PhContact extends LitElement {
       body: json,
     })
       .then(async (response) => {
-        if (response.status !== 200) {
-          this.configureResultMsg(
-            true,
-            "Message sent successfully!",
-            "Thank you for your interest.",
-            "I will get back to you as soon as possible."
-          );
+        if (response.status === 200) {
+          this.configureResultMsg(true);
         } else {
-          this.configureResultMsg(
-            false,
-            "Could not send the message!",
-            "I'm sorry for the inconvenience.",
-            "Please contact me via one of the other channels."
-          );
+          this.configureResultMsg(false);
         }
       })
       .catch((error) => {
         console.error(error);
-        this.configureResultMsg(
-          false,
-          "Could not send the message!",
-          "I'm sorry for the inconvenience.",
-          "Please contact me via one of the other channels."
-        );
+        this.configureResultMsg(false);
       })
       .then(() => {
         this._contactForm.reset();
@@ -222,7 +210,7 @@ export class PhContact extends LitElement {
             <object data="${hourglassIcon}" type="image/svg+xml">
               Hourglass SVG Icon
             </object>
-            Sending... please wait...
+            ${msg("Sending... please wait...")}
           </div>
           <div id="result">
             <object

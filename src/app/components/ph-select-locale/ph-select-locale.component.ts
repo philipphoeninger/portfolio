@@ -10,12 +10,12 @@ const localeNames: {
 } = {
   en: "English",
   "de-DE": "Deutsch",
-  "es-ES": "Español",
-  "fr-FR": "Français",
-  "it-IT": "Italiano",
-  "ja-JP": "日本語",
-  "tr-TR": "Türkçe",
-  "zh-Hans": "简体中文",
+  // "es-ES": "Español",
+  // "fr-FR": "Français",
+  // "it-IT": "Italiano",
+  // "ja-JP": "日本語",
+  // "tr-TR": "Türkçe",
+  // "zh-Hans": "简体中文",
 };
 
 @customElement("ph-select-locale")

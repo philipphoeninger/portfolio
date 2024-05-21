@@ -1,10 +1,10 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { style } from "./ph-showcase.component.css.ts";
-import { msg, localized, LOCALE_STATUS_EVENT } from "@lit/localize";
+import { localized, LOCALE_STATUS_EVENT } from "@lit/localize";
 import csharp from "@assets/icons/csharp.svg";
 import angular from "@assets/icons/angular.svg";
-import css from "@assets/icons/css.svg";
+// import css from "@assets/icons/css.svg";
 import sass from "@assets/icons/sass.svg";
 import htmlSvg from "@assets/icons/html.svg";
 import typescript from "@assets/icons/typescript.svg";
@@ -21,6 +21,7 @@ export class PhShowcase extends LitElement {
   // @property({ type: Array }) options: { name: string; link: string }[] = [];
   @property({ type: String }) name = "";
   @property({ type: String }) heading = "";
+  @property({ type: String }) btnCaption = "Button";
   @property({ type: String }) description = "";
   @property({ type: Array }) imgUrls: string[] = [];
 
@@ -31,7 +32,7 @@ export class PhShowcase extends LitElement {
         <h1>${this.heading}</h1>
         <p id="text">${this.description}</p>
         <ph-button
-          caption="Contact me"
+          caption="${this.btnCaption}"
           icon="${arrowDownLong}"
           @click=${() =>
             this.dispatchEvent(

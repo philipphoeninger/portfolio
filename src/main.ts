@@ -19,7 +19,7 @@ export const components = [
   PhMenu,
   PhShowcase,
   PhScroller,
-  // PhSelectInfo,
+  PhSelectInfo,
   // PhSelectLocale,
   // PhTooltip,
   PhContact,

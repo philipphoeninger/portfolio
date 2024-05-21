@@ -10,5 +10,5 @@ export const { getLocale, setLocale } = configureLocalization({
 export const setLocaleFromUrl = async () => {
   const url = new URL(window.location.href);
   const locale = url.searchParams.get("locale") || sourceLocale;
-  await setLocale(locale);
+  await setLocale("en"); // locale
 };
