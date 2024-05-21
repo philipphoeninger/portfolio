@@ -11,29 +11,57 @@ export const style = css`
     list-style: none;
   }
 
+  object {
+    height: 25px;
+  }
+
   #container {
-    border-bottom: 1px solid black;
-    position: relative;
+    border-bottom: 1px solid gray;
+    /* position: relative; */
+    /* margin-right: 2rem; */
+    display: flex;
+    justify-content: left;
   }
 
   #container select {
     font-size: 1.25rem;
-    padding: 0.5em 3em 0.5em 1em;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    /* margin-right: 1rem; */
     background-color: var(--clr-primary, white);
     color: var(--clr-secondary, black);
     border: none;
-    width: 100%;
+    width: calc(100% - 0.5rem);
+    justify-content: left;
+    align-items: left;
+
+    background-image: linear-gradient(to right, #bdbdbd, #bdbdbd);
+    background-position: calc(100% - 1.5em) 0.5em;
+    background-size: 1px 1.25em;
+    background-repeat: no-repeat;
+  }
+
+  #container select:focus-visible {
+    outline: none;
+  }
+
+  #container select:after {
+    margin-right: 1rem;
+    padding-right: 1rem;
   }
 
   #container select:focus {
     border: none;
   }
 
-  #icon {
+  .skills__icon {
+    height: 25px;
+  }
+
+  /* #icon {
     height: 100%;
     width: 4em;
     position: relative;
-  }
+  } */
 
   /* #icon span {
     display: inline-block;

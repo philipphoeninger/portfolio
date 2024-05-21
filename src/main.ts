@@ -15,7 +15,7 @@ import { PhFooter } from "@app/components/ph-footer/ph-footer.component";
 export const components = [
   PhButton,
   // PhCard,
-  // PhDropdown,
+  PhDropdown,
   PhMenu,
   PhShowcase,
   PhScroller,
