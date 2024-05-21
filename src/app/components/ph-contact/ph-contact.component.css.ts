@@ -30,7 +30,6 @@ export const style = css`
   }
 
   #social-media {
-    margin-top: 1rem;
     width: 100%;
     /* overflow: hidden; */
 
@@ -74,7 +73,6 @@ export const style = css`
     padding: 0.5rem 1rem;
     border-radius: 7px;
     overflow: hidden;
-    max-width: 800px;
     background-color: var(--clr-lighter, white);
 
     object {
@@ -89,7 +87,6 @@ export const style = css`
     justify-content: center;
     margin-top: 1rem;
     width: 100%;
-    max-width: 800px;
 
     label {
       border: 0;

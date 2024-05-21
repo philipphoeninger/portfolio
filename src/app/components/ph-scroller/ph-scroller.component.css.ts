@@ -33,7 +33,6 @@ export const style = css`
   }
 
   .scroller__inner {
-    padding-block: 1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;

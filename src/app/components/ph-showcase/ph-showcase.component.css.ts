@@ -141,9 +141,10 @@ export const style = css`
     #social-media {
       ul {
         justify-content: space-around;
+        margin-bottom: 1rem;
 
         li {
-          margin: 0.5rem;
+          margin: 0 0.5rem 0 0;
 
           object {
             height: 35px;
@@ -190,7 +191,7 @@ export const style = css`
 
         width: 100%;
         height: auto;
-        min-height: 356px;
+        min-height: 385px;
         max-height: 400px;
         object-fit: cover;
         object-position: center top;
@@ -214,11 +215,15 @@ export const style = css`
 
   @media (min-width: 890px) {
     #social-media ul li {
-      margin-right: 3.25em;
+      margin-right: 3em;
     }
   }
 
   @media (min-width: 1250px) {
+    #social-media ul li {
+      margin-right: 3.25em;
+    }
+
     #portrait {
       img {
         min-height: 400px;

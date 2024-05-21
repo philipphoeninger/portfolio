@@ -167,7 +167,7 @@ export const style = css`
 
     .menu__items li {
       float: left;
-      padding-inline: 10px;
+      padding-inline: 1rem;
       padding-block: 0;
       height: 100%;
       cursor: pointer;
