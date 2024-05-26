@@ -44,10 +44,8 @@ export class ConfigModel {
     heading: string;
     subHeading: string;
   };
-  @jsonMember({ constructor: Boolean })
-  showAbout: boolean = true;
-  @jsonMember({ constructor: String })
-  aboutHeading: string;
+  @jsonMember({ constructor: Object })
+  about: AboutModel;
   @jsonMember({ constructor: Object })
   footer: { links: { id: number; caption: string }[] };
 }

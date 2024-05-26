@@ -134,6 +134,18 @@ export const style = css`
     }
   }
 
+  #about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding-top: 3rem; */
+
+    ph-about {
+      margin-top: 1.875rem;
+      max-width: 800px;
+    }
+  }
+
   #contact {
     margin-block: 3rem;
     display: flex;

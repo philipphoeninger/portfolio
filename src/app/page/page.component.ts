@@ -27,6 +27,7 @@ export class Page extends LitElement {
   @query("ph-menu", true) _menu: any;
   @query("#work", true) _work: any;
   @query("#skills", true) _skills: any;
+  @query("#about", true) _about: any;
   @query("#contact", true) _contact: any;
   @query("#main-container", true) _mainContainer: any;
   @query("#impressum", true) _impressum: any;
@@ -91,8 +92,7 @@ export class Page extends LitElement {
         this._work?.scrollIntoView({ behavior: "smooth" });
         break;
       case EnMenuOption.About:
-        // this._about?.scrollIntoView({ behavior: "smooth" });
-        // TODO
+        this._about?.scrollIntoView({ behavior: "smooth" });
         break;
       case EnMenuOption.Contact:
         this._contact?.scrollIntoView({ behavior: "smooth" });
@@ -159,10 +159,10 @@ export class Page extends LitElement {
         id: EnMenuOption.Skills,
         name: msg("Skills"),
       },
-      // {
-      //   id: EnMenuOption.About,
-      //   name: "About",
-      // },
+      {
+        id: EnMenuOption.About,
+        name: msg("About"),
+      },
       {
         id: EnMenuOption.Contact,
         name: msg("Contact me"),
@@ -248,9 +248,13 @@ export class Page extends LitElement {
         </section>`
       : nothing;
 
-    let about = config.showAbout
+    let about = config.about.visible
       ? html`<section id="about" class="container-section">
-          <h2>${msg("About")}</h2>
+          <div class="heading">
+            <span class="heading-text">${msg("My career")}</span>
+            <h2>${msg("About")}</h2>
+          </div>
+          <ph-about .entries="${config.about.entries}"></ph-about>
         </section>`
       : nothing;
 
@@ -298,12 +302,7 @@ export class Page extends LitElement {
         <section id="scroller" class="container-section">
           <ph-scroller></ph-scroller>
         </section>
-        ${skills}
-        <div id="skills-text">
-          ${msg("Self-evaluation powered by")}
-          <a href="https://roadmap.sh/" target="_blank">Roadmap.sh</a>
-        </div>
-        ${contact}
+        ${skills} ${about} ${contact}
       </main>
       ${impressum} ${dataPrivacy} ${footer}
     `;

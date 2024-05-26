@@ -11,6 +11,7 @@ import { PhButton } from "@app/components/ph-button/ph-button.component";
 import { PhScroller } from "@app/components/ph-scroller/ph-scroller.component";
 import { PhInfoPage } from "@app/components/ph-info-page/ph-info-page.component";
 import { PhFooter } from "@app/components/ph-footer/ph-footer.component";
+import { PhAbout } from "@app/components/ph-about/ph-about.component";
 
 export const components = [
   PhButton,
@@ -20,6 +21,7 @@ export const components = [
   PhShowcase,
   PhScroller,
   PhSelectInfo,
+  PhAbout,
   // PhSelectLocale,
   // PhTooltip,
   PhContact,

@@ -1,13 +1,13 @@
 import { jsonMember, jsonObject } from "typedjson";
 
 @jsonObject
-export class LinkModel {
+export class AboutDescriptionEntryModel {
   @jsonMember({ constructor: Number })
-  id: number;
+  id: Number;
 
   @jsonMember({ constructor: String })
-  caption: string;
+  label: string;
 
-  @jsonMember({ constructor: Boolean })
-  highlighted?: boolean;
+  @jsonMember({ constructor: String })
+  iconUrl: string;
 }
