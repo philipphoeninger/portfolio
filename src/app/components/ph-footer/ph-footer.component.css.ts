@@ -71,4 +71,10 @@ export const style = css`
       }
     }
   }
+
+  @media (min-width: 1250px) {
+    #footer {
+      padding: 3.5rem;
+    }
+  }
 `;

@@ -45,13 +45,12 @@ export const style = css`
   }
 
   #main-container {
-    padding: var(--menu-height) var(--min-padding) 0;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 1400px;
+    /* max-width: 1400px; */
   }
 
   #scroll-up {
@@ -87,6 +86,8 @@ export const style = css`
 
   .container-section {
     width: 100%;
+    padding-inline: var(--min-padding);
+    padding-block: 3.5rem;
   }
 
   #work {
@@ -113,7 +114,9 @@ export const style = css`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    background-color: var(--clr-lighter, white);
+    width: 100%;
 
     ph-select-info {
       margin-top: 1rem;
@@ -147,11 +150,11 @@ export const style = css`
   }
 
   #contact {
-    margin-block: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    background-color: var(--clr-lighter, white);
 
     ph-contact {
       margin-top: 1rem;
@@ -165,7 +168,8 @@ export const style = css`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    padding: 0;
 
     ph-scroller {
       max-width: 600px;
@@ -174,7 +178,8 @@ export const style = css`
   }
 
   #showcase {
-    margin-top: 1rem;
+    padding-top: calc(1rem + var(--menu-height));
+    padding-bottom: 0;
 
     ph-showcase {
       height: 100%;
@@ -185,18 +190,25 @@ export const style = css`
   @media (min-width: 769px) {
     #scroller {
       margin-top: 0;
+      padding-block: 1rem;
     }
 
     #skills {
-      margin-top: 5rem;
+      padding-top: 5rem;
+    }
+
+    #about {
+      padding-top: 5rem;
     }
 
     #contact {
-      margin-top: 5rem;
+      padding-top: 5rem;
     }
 
     .container-section {
-      margin-top: 7rem;
+      padding-top: 7rem;
+      padding-bottom: 5rem;
+      padding-inline: 5rem;
     }
 
     #showcase {

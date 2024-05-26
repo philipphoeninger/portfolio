@@ -10,7 +10,6 @@ export const style = css`
 
   :host {
     display: block;
-    background-color: var(--clr-primary, white);
   }
 
   object {

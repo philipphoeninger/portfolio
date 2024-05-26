@@ -225,6 +225,10 @@ export class Page extends LitElement {
             <h2>${msg("Skills")}</h2>
           </div>
           <ph-select-info .skills="${config.skills}"></ph-select-info>
+          <div id="skills-text">
+            ${msg("Self-evaluation powered by")}
+            <a href="https://roadmap.sh/" target="_blank">Roadmap.sh</a>
+          </div>
         </section>`
       : nothing;
 
@@ -261,7 +265,7 @@ export class Page extends LitElement {
     let contact = config.contact.visible
       ? html` <section id="contact" class="container-section">
           <div class="heading">
-            <span class="heading-text">${msg("Work with me!")}</span>
+            <span class="heading-text">${msg("Work with me")}</span>
             <h2>${msg("Contact")}</h2>
           </div>
           <ph-contact name="${config.personalInfo.name}"></ph-contact>

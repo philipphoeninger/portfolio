@@ -3,6 +3,7 @@ import { ShowcaseModel } from "./showcase.model";
 import { SkillModel } from "./skill.model";
 import { WorkModel } from "./work.model";
 import { LinkModel } from "./link.model";
+import { AboutModel } from "./about.model";
 
 @jsonObject
 export class ConfigModel {

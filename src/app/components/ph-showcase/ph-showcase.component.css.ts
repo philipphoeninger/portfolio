@@ -191,7 +191,7 @@ export const style = css`
 
         width: 100%;
         height: auto;
-        min-height: 385px;
+        min-height: 350px;
         max-height: 400px;
         object-fit: cover;
         object-position: center top;
@@ -205,6 +205,7 @@ export const style = css`
       ul {
         justify-content: left;
         padding-left: 0;
+        margin-bottom: 0;
 
         li {
           margin-right: 2.25rem;
@@ -226,7 +227,7 @@ export const style = css`
 
     #portrait {
       img {
-        min-height: 400px;
+        min-height: 350px;
       }
     }
   }

@@ -27,7 +27,7 @@ export const style = css`
     font-size: 1.25rem;
     padding: 0.5rem 0.5rem 0.5rem 0;
     /* margin-right: 1rem; */
-    background-color: var(--clr-primary, white);
+    background-color: var(--clr-lighter, white);
     color: var(--clr-secondary, black);
     border: none;
     width: calc(100% - 0.5rem);
